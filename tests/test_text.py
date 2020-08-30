@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import json
 import textmywife
 
 
@@ -8,7 +9,11 @@ class TestTextMyWife:
 
     def test_get_message(self, text_mw):
         """Test message retrival."""
-        pass
+        message = text_mw.get_message('tests/compliments.yml')
+        assert isinstance(message, dict)
+        assert json.dumps(message)
+        assert message.get('from') == 'billybuck'
+        assert message.get('text') == 'You have very nice hair.'
 
     def test_add_send_date(self, text_mw):
         """Test recording of most recent send date."""

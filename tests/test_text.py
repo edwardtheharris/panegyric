@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 class TestTextMyWife:
     """Test class for text my wife package."""
 

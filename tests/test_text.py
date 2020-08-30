@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import datetime
 import json
 import textmywife
 
@@ -15,9 +16,17 @@ class TestTextMyWife:
         assert message.get('from') == 'billybuck'
         assert message.get('text') == 'You have very nice hair.'
 
-    def test_add_send_date(self, text_mw):
+    def test_add_send_date(self, text_mw, message):
         """Test recording of most recent send date."""
-        pass
+        current_date = datetime.date.today()
+        message.update(
+            {'send_date': datetime.date.strftime(current_date, '%Y-%m-%d')})
+        new_message = text_mw.add_send_date()
+        assert isinstance(message, dict)
+        assert json.dumps(message)
+        assert message.get('from') == 'harry s truman'
+        assert message.get('text') == 'the buck stops here'
+        assert new_message == message
 
     def test_api_auth(self, text_mw):
         """Verify authentication with the API."""

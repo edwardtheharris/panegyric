@@ -11,6 +11,6 @@ jobs:
       before_script: |
         pip3 install pipenv
         pipenv install --dev
+      script: |
         pipenv shell
-      script:
         pytest

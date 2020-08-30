@@ -10,6 +10,7 @@ autopep8 = "*"
 
 [packages]
 "ruamel.yaml" = "*"
+tox = "*"
 
 [requires]
 python_version = "3.8"

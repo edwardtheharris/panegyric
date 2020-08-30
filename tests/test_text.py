@@ -6,6 +6,11 @@ import textmywife
 class TestTextMyWife:
     """Test class for text my wife package."""
 
+    @classmethod
+    def setup_method(cls):
+        """Setup class for test execution."""
+        from textmywife import TextMyWife
+
     def test_get_message(self):
         """Test message retrival."""
         pass

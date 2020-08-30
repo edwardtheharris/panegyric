@@ -7,7 +7,7 @@ stages:
 before_script: |
   pip3 install pipenv
   pipenv lock
-  pipenv sync
+  pipenv sync --dev
 jobs:
   include:
     - stage: lint

@@ -1,5 +1,15 @@
 language: python
 python:
-- '2.7'
-- '3.3'
+- '3.8'
 - pypy
+stages:
+  - tests
+jobs:
+  include:
+    - stage: tests
+      before_script: |
+        pip3 install pipenv
+        pipenv install --dev
+        pipenv shell
+      script:
+        pytest

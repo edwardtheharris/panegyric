@@ -9,7 +9,7 @@ class TestTextMyWife:
     @classmethod
     def setup_method(cls):
         """Setup class for test execution."""
-        from textmywife import TextMyWife
+        text_mw = textmywife.TextMyWife()
 
     def test_get_message(self):
         """Test message retrival."""

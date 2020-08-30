@@ -1,8 +1,6 @@
 language: python
 python:
 - '3.8'
-env: 
-  - PIPENV_IGNORE_VIRTUALENVS=1
 stages:
   - tests
 jobs:
@@ -10,7 +8,7 @@ jobs:
     - stage: tests
       before_script: |
         pip3 install pipenv
-        pipenv install --dev
-      script: |
+        pipenv sync
         pipenv shell
+      script: |
         pytest

@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "/Users/edwardharris/.local/share/virtualenvs/textmywife-5phQPGRO/bin/python",
+    "python.linting.pylintEnabled": false,
+    "python.linting.pylamaEnabled": true,
+    "python.linting.enabled": true
+}

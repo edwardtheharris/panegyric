@@ -15,5 +15,5 @@ class TestTextMyWife:
         pass
 
     def test_api_auth(self)
-    """Verify authentication with the API."""
-    pass
+        """Verify authentication with the API."""
+        pass

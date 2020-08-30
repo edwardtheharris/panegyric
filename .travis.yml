@@ -15,4 +15,4 @@ jobs:
         pylama .
     - stage: tests
       script: |
-        pytest
+        tox

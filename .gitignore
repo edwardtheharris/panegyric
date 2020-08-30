@@ -1,1 +1,4 @@
 *.lock
+.tox/
+*egg*
+__pycache__/

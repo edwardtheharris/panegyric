@@ -8,6 +8,7 @@ jobs:
     - stage: tests
       before_script: |
         pip3 install pipenv
+        pipenv lock
         pipenv sync
       script: |
         pytest

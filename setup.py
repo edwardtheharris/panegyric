@@ -7,6 +7,9 @@ setuptools.setup(
     description='Automation for complimenting my wife.',
     author='Edward Harris',
     author_email='plebis@hotmail.com',
+    install_requires=[
+        'ruamel.yaml'
+    ],
     packages=setuptools.find_packages(),
     version='v0.1.0',
 )

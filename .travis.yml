@@ -9,6 +9,5 @@ jobs:
       before_script: |
         pip3 install pipenv
         pipenv sync
-        pipenv shell
       script: |
         pytest

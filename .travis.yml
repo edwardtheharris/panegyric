@@ -1,6 +1,8 @@
 language: python
 python:
 - '3.8'
+env: 
+  - PIPENV_IGNORE_VIRTUALENVS=1
 stages:
   - tests
 jobs:

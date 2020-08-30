@@ -2,13 +2,17 @@ language: python
 python:
 - '3.8'
 stages:
+  - lint
   - tests
+before_script: |
+  pip3 install pipenv
+  pipenv lock
+  pipenv sync --dev
 jobs:
   include:
+    - stage: lint
+      scripts: |
+        pylama .
     - stage: tests
-      before_script: |
-        pip3 install pipenv
-        pipenv lock
-        pipenv sync
       script: |
         pytest

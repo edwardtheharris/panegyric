@@ -4,18 +4,41 @@ orbs:
   python: circleci/python@0.2.1
 
 jobs:
-  build-and-test:
+  lint:
     executor: python/default
     steps:
       - checkout
-      - python/load-cache
-      - python/install-deps
-      - python/save-cache
       - run:
-          command: ./manage.py test
-          name: Test
+          command: pip3 install pipenv
+          name: install pipenv
+      - run:
+          command: pipenv lock
+          name: lock pipenv
+      - run: 
+          command: pipenv sync --dev
+          name: sync pipenv
+      - run:
+          command: pipenv run pylama
+          name: lint
+  test:
+    executor: python/default
+    steps:
+      - checkout
+      - run:
+          command: pip3 install pipenv
+          name: install pipenv
+      - run:
+          command: pipenv lock
+          name: lock pipenv
+      - run: 
+          command: pipenv sync --dev
+          name: sync pipenv    
+      - run:
+          command: pipenv run pytest
+          name: test
 
 workflows:
   main:
     jobs:
-      - build-and-test
+      - lint
+      - test

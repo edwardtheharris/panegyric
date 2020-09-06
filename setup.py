@@ -8,6 +8,8 @@ setuptools.setup(
     author='Edward Harris',
     author_email='plebis@hotmail.com',
     install_requires=[
+        'python-dotenv',
+        'requests',
         'ruamel.yaml'
     ],
     packages=setuptools.find_packages(),

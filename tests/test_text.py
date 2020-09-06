@@ -19,6 +19,12 @@ class TestTextMyWife:
         assert message.get('from') == 'billybuck'
         assert message.get('text') == 'You have very nice hair.'
 
+    def test_get_all_messages(self, text_mw):
+        """Test get every message."""
+        messages = text_mw.get_all_messages()
+
+        assert isinstance(messages, list)
+
     def test_add_send_date(self, text_mw, message):
         """Test recording of most recent send date."""
         current_date = datetime.date.today()
@@ -44,21 +50,22 @@ class TestTextMyWife:
             'key': f'{test_key}_test',
         })
         print(resp.json())
+        assert isinstance(resp.json(), dict)
 
     def test_message_iteration(self, text_mw):
         """Test that the same message isn't sent twice."""
         tmw_instance = textmywife.text.TextMyWife()
+
+        for message in tmw_instance.get_all_messages():
+            assert message.get('send_date') != '2020-09-06'
         assert isinstance(tmw_instance, textmywife.text.TextMyWife)
-        pass
 
     def test_message_rate(self, text_mw):
         """Verify that we send one message a day."""
-        test_current_date = datetime.datetime.strptime(
-            '2020-09-06', '%Y-%m-%d')
-        with open('date-last-sent') as date_last_sent_fh:
-            date_last_sent_str = date_last_sent_fh.read()
+        messages = text_mw.get_all_messages()
 
-        date_last_sent = datetime.datetime.strptime(
-            date_last_sent_str, '%Y-%m-%d')
+        date_list = []
+        for message in messages:
+            date_list.append(message.get('send_date'))
 
-        assert date_last_sent == test_current_date
+        assert set(date_list) == date_list

@@ -39,7 +39,8 @@ class TestTextMyWife:
     def test_get_request(self, text_mw):
         """Test that the request is correctly assembled."""
         result = text_mw.get_request()
-        assert
+
+        assert isinstance(result, dict)
 
     def test_api_response(self, text_mw):
         """Validate that the API response is what we expect."""

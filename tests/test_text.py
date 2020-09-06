@@ -59,4 +59,12 @@ class TestTextMyWife:
 
     def test_message_rate(self, text_mw):
         """Verify that we send one message a day."""
-        pass
+        test_current_date = datetime.datetime.strptime(
+            '%Y-%m-%d', '2020-09-06')
+        with open('date-last-sent') as date_last_sent_fh:
+            date_last_sent_str = date_last_sent_fh.read()
+
+        date_last_sent = datetime.datetime.strptime(
+            '%Y-%m-%d', date_last_sent_str)
+
+        assert date_last_sent == test_current_date

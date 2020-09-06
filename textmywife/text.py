@@ -2,5 +2,8 @@
 
 print("textmywife")
 
+
 class TextMyWife:
-    
+    def __init__():
+        """Initialize a TextMyWife instance."""
+        pass

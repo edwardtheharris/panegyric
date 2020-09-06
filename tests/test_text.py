@@ -5,7 +5,7 @@ import json
 import os
 import dotenv
 import requests
-import textmywife
+# import textmywife
 
 
 class TestTextMyWife:
@@ -18,7 +18,7 @@ class TestTextMyWife:
         # assert json.dumps(message)
         # assert message.get('from') == 'billybuck'
         # assert message.get('text') == 'You have very nice hair.'
-        print(json.dumps({"some":"value"}))
+        print(json.dumps({"some": "value"}))
         assert True
 
     def test_get_all_messages(self, text_mw):
@@ -63,6 +63,8 @@ class TestTextMyWife:
         # for message in tmw_instance.get_all_messages():
         #     assert message.get('send_date') != '2020-09-06'
         # assert isinstance(tmw_instance, textmywife.text.TextMyWife)
+        test_date = datetime.datetime.now()
+        assert isinstance(test_date, datetime.datetime)
         assert True
 
     def test_message_rate(self, text_mw):

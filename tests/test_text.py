@@ -2,6 +2,8 @@
 
 import datetime
 import json
+import os
+import dotenv
 import requests
 import textmywife
 
@@ -37,17 +39,18 @@ class TestTextMyWife:
     def test_get_request(self, text_mw):
         """Test that the request is correctly assembled."""
         result = text_mw.get_request()
-        assert 
+        assert
 
     def test_api_response(self, text_mw):
         """Validate that the API response is what we expect."""
+        dotenv.load_dotenv()
+        test_key = os.getenv('api_key')
         resp = requests.post('https://textbelt.com/text', {
-        'phone': '5555555555',
-        'message': 'Hello world',
-        'key': '',
+            'phone': '4243219495',
+            'message': 'the buck stops here - harry s truman',
+            'key': f'{test_key}_test',
         })
         print(resp.json())
-
 
     def test_message_iteration(self, text_mw):
         """Test that the same message isn't sent twice."""

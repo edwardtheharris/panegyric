@@ -47,7 +47,8 @@ class TestTextMyWife:
 
     def test_message_iteration(self, text_mw):
         """Test that the same message isn't sent twice."""
-
+        tmw_instance = textmywife.TextMyWife()
+        assert isinstance(tmw_instance, textmywife.TextMyWife)
         pass
 
     def test_message_rate(self, text_mw):

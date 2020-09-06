@@ -32,7 +32,10 @@ jobs:
           name: lock pipenv
       - run: 
           command: pipenv sync --dev
-          name: sync pipenv    
+          name: sync pipenv
+      - run:
+          command: pipenv run pip install -e .
+          name: install module
       - run:
           command: pipenv run pytest
           name: test

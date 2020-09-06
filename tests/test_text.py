@@ -25,22 +25,14 @@ class TestTextMyWife:
         message.update(
             {'send_date': datetime.date.strftime(current_date, '%Y-%m-%d')})
         new_message = text_mw.add_send_date()
+
         assert isinstance(message, dict)
         assert json.dumps(message)
         assert message.get('from') == 'harry s truman'
         assert message.get('text') == 'the buck stops here'
+        assert message.get('send_date') == datetime.date.strftime(
+            current_date, '%Y-%m-%d')
         assert new_message == message
-
-    def test_api_auth(self, text_mw):
-        """Verify authentication with the API."""
-
-        pass
-
-    def test_get_request(self, text_mw):
-        """Test that the request is correctly assembled."""
-        result = text_mw.get_request()
-
-        assert isinstance(result, dict)
 
     def test_api_response(self, text_mw):
         """Validate that the API response is what we expect."""
@@ -55,6 +47,7 @@ class TestTextMyWife:
 
     def test_message_iteration(self, text_mw):
         """Test that the same message isn't sent twice."""
+
         pass
 
     def test_message_rate(self, text_mw):

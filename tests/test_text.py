@@ -2,6 +2,7 @@
 
 import datetime
 import json
+import requests
 import textmywife
 
 
@@ -30,15 +31,23 @@ class TestTextMyWife:
 
     def test_api_auth(self, text_mw):
         """Verify authentication with the API."""
+
         pass
 
     def test_get_request(self, text_mw):
         """Test that the request is correctly assembled."""
-        pass
+        result = text_mw.get_request()
+        assert 
 
     def test_api_response(self, text_mw):
         """Validate that the API response is what we expect."""
-        pass
+        resp = requests.post('https://textbelt.com/text', {
+        'phone': '5555555555',
+        'message': 'Hello world',
+        'key': '',
+        })
+        print(resp.json())
+
 
     def test_message_iteration(self, text_mw):
         """Test that the same message isn't sent twice."""

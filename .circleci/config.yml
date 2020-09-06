@@ -18,8 +18,10 @@ jobs:
           command: pipenv sync --dev
           name: sync pipenv
       - run:
-          command: pipenv run pylama
+          command: pipenv run pylama --report results.xml
           name: lint
+      - store_test_results:
+          path: .
   test:
     executor: python/default
     steps:

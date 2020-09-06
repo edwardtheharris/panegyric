@@ -37,8 +37,10 @@ jobs:
           command: pipenv run pip install -e .
           name: install module
       - run:
-          command: pipenv run pytest
+          command: pipenv run pytest --junit-xml results.xml
           name: test
+      - store_test_results:
+          path: .
 
 workflows:
   main:

@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
 import pytest
-import textmywife
+import textmywife.text
 
 
 @pytest.fixture
 def text_mw():
     """Return an instance of TextMyWife."""
-    return textmywife.TextMyWife()
+    return textmywife.text.TextMyWife()
 
 
 @pytest.fixture

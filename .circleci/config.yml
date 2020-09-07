@@ -18,8 +18,10 @@ jobs:
           command: pipenv sync --dev
           name: sync pipenv
       - run:
-          command: pipenv run pylama
+          command: pipenv run pylama --report results.xml
           name: lint
+      - store_test_results:
+          path: .
   test:
     executor: python/default
     steps:
@@ -32,10 +34,15 @@ jobs:
           name: lock pipenv
       - run: 
           command: pipenv sync --dev
-          name: sync pipenv    
+          name: sync pipenv
       - run:
-          command: pipenv run pytest
+          command: pipenv run pip install -e .
+          name: install module
+      - run:
+          command: pipenv run pytest --junit-xml results.xml
           name: test
+      - store_test_results:
+          path: .
 
 workflows:
   main:

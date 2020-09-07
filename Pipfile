@@ -9,6 +9,7 @@ pylama = "*"
 autopep8 = "*"
 
 [packages]
-
-[requires]
-python_version = "3.8"
+"ruamel.yaml" = "*"
+tox = "*"
+python-dotenv = "*"
+requests = "*"

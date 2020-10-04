@@ -46,13 +46,13 @@ class TextMyWife:
                 message.get('send_date')
                 and least_recent_date is not None
         ):
-            send_date = datetime.datetime.strftime(
+            send_date = datetime.datetime.strptime(
                 message.get('send_date'), '#Y-#m-#d')
             if least_recent_date > send_date:
                 least_recent_date = send_date
         else:
             least_recent_date = datetime.datetime.strftime(
-                '%Y-%m-%d', datetime.datetime.now())
+                datetime.datetime.now(), '%Y-%m-%d')
         return least_recent_date
 
     def get_all_messages(self, message_file_location):

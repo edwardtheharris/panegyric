@@ -36,22 +36,45 @@ class TestTextMyWife:
             ({
                 'from': 'billybuck',
                 'text': 'You have very nice hair',
-                'send_date': datetime.datetime.strftime(
-                    datetime.datetime.now(), '%Y-%m-%d')},
-             None)
+                'send_date': (datetime.datetime.strftime(
+                    datetime.datetime.now(), '%Y-%m-%d') - datetime.timedelta(
+                        days=5))},
+             None),
+            ({
+                'from': 'billybuck',
+                'text': 'You have very nice hair',
+                'send_date': (datetime.datetime.strftime(
+                    datetime.datetime.now(), '%Y-%m-%d') - datetime.timedelta(
+                        days=4))},
+             (datetime.datetime.strftime(
+                 datetime.datetime.now(), '%Y-%m-%d') - datetime.timedelta(
+                 days=5)))
         ]
     )
     def test_check_send_date(self, text_mw, message, least_recent_date):
         """Test recording of most recent send date."""
         current_date = datetime.datetime.now()
-        least_recent_date = text_mw.check_send_date(
+        test_least_recent_date = text_mw.check_send_date(
             message, least_recent_date
         )
 
         assert isinstance(message, dict)
-        assert isinstance(least_recent_date, datetime.datetime.Datetime)
+        assert isinstance(least_recent_date, str)
         assert json.dumps(message)
-        assert message.get('send_date') == datetime.date.strftime(
+        if (
+                message.get('send_date')
+                and least_recent_date is None):
+            assert test_least_recent_date == datetime.datetime.strftime(
+                message.get('send_date'), '%Y-%m-%d'
+            )
+
+        if (
+                message.get('send_date')
+                and least_recent_date is not None):
+            assert test_least_recent_date == (datetime.datetime.strftime(
+                datetime.datetime.now(), '%Y-%m-%d') - datetime.timedelta(
+                days=5))
+        assert message.get('send_date') == datetime.datetime.strftime(
             current_date, '%Y-%m-%d')
         # assert new_message == message
         assert True

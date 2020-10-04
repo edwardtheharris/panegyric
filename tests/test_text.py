@@ -23,9 +23,9 @@ class TestTextMyWife:
 
     def test_get_all_messages(self, text_mw):
         """Test get every message."""
-        # messages = text_mw.get_all_messages()
+        messages = text_mw.get_all_messages('tests/compliments.yml')
 
-        # assert isinstance(messages, list)
+        assert isinstance(messages, list)
         assert True
 
     def test_add_send_date(self, text_mw, message):

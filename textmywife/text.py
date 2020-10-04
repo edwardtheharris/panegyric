@@ -15,11 +15,11 @@ class TextMyWife:
     def get_all_messages(self):
         """Get all messages."""
         return
-    
+
     def add_send_date(self):
         """Append most recent send date."""
         return
-    
+
     def send_message(self):
         """Send the selected message."""
         return

@@ -8,7 +8,7 @@ setuptools.setup(
     author='Edward Harris',
     author_email='plebis@hotmail.com',
     entry_points={
-        "console_scripts": "textmywife.text:main",
+        "console_scripts": "textmywife=textmywife.text:main",
     },
     install_requires=[
         'python-dotenv',

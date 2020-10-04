@@ -9,7 +9,7 @@ setuptools.setup(
     author_email='plebis@hotmail.com',
     entry_points={
         "console_scripts": "textmywife.text:main",
-    }
+    },
     install_requires=[
         'python-dotenv',
         'requests',

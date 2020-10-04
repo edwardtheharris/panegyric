@@ -4,8 +4,9 @@ import datetime
 import json
 import os
 import dotenv
+import pytest
 import requests
-# import textmywife
+import textmywife
 
 
 class TestTextMyWife:
@@ -28,15 +29,25 @@ class TestTextMyWife:
         assert isinstance(messages, list)
         assert True
 
-    def test_add_send_date(self, text_mw, message):
+    @pytest.mark.parametrize(
+        'message, least_recent_date', [(
+            {'from': 'billybuck',
+             'text': 'You have very nice hair'},
+            None),
+            ({
+                'from': 'billybuck',
+                'text': 'You have very nice hair',
+                'send_date': datetime.datetime.strftime(
+                    datetime.datetime.now(), '%Y-%m-%d')},
+            None)
+        ]
+    )
+    def test_check_send_date(self, text_mw, message, least_recent_date):
         """Test recording of most recent send date."""
-        # current_date = datetime.date.today()
-        # message.update(
-        #     {'send_date': datetime.date.strftime(current_date, '%Y-%m-%d')})
-        # new_message = text_mw.add_send_date()
+        current_date = datetime.datetime.now()
 
-        # assert isinstance(message, dict)
-        # assert json.dumps(message)
+        assert isinstance(message, dict)
+        assert json.dumps(message)
         # assert message.get('from') == 'harry s truman'
         # assert message.get('text') == 'the buck stops here'
         # assert message.get('send_date') == datetime.date.strftime(

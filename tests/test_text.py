@@ -44,7 +44,7 @@ class TestTextMyWife:
         # assert new_message == message
         assert True
 
-    def test_api_response(self, text_mw):
+    def test_send_message(self, text_mw):
         """Validate that the API response is what we expect."""
         dotenv.load_dotenv()
         test_key = os.getenv('api_key')

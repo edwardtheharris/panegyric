@@ -7,6 +7,9 @@ setuptools.setup(
     description='Automation for complimenting my wife.',
     author='Edward Harris',
     author_email='plebis@hotmail.com',
+    entry_points={
+        "console_scripts": "textmywife.text:main",
+    }
     install_requires=[
         'python-dotenv',
         'requests',

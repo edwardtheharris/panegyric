@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-print("textmywife")
-
-
 class TextMyWife:
     def __init__(self):
         """Initialize a TextMyWife instance."""
@@ -27,3 +24,12 @@ class TextMyWife:
     def iterate_message(self):
         """Iterate message list."""
         return
+
+def main():
+    """Main program execution."""
+    text_mw = TextMyWife()
+    messages = text_mw.get_messages()
+
+
+if __name__ == '__main__':
+    main()

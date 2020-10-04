@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from ruamel import yaml
 
+
 class TextMyWife:
     def __init__(self):
         """Initialize a TextMyWife instance."""

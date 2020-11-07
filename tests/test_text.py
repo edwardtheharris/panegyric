@@ -10,6 +10,9 @@ import requests
 
 class TestTextMyWife:
     """Test class for text my wife package."""
+    send_date = datetime.datetime.strptime(
+                    datetime.datetime.now(), '%Y-%m-%d') - datetime.timedelta(
+                        days=5)
 
     def test_get_message(self, text_mw):
         """Test message retrival."""
@@ -36,9 +39,7 @@ class TestTextMyWife:
             ({
                 'from': 'billybuck',
                 'text': 'You have very nice hair',
-                'send_date': (datetime.datetime.strftime(
-                    datetime.datetime.now(), '%Y-%m-%d') - datetime.timedelta(
-                        days=5))},
+                'send_date': self.send_date)},
              None),
             ({
                 'from': 'billybuck',

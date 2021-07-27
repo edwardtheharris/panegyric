@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Tests for the Text class."""
 
 import datetime
 import json
@@ -8,8 +9,9 @@ import pytest
 import requests
 
 
-class TestTextMyWife:
+class TestText:
     """Test class for text my wife package."""
+
     send_date = datetime.datetime.strptime(
                     datetime.datetime.now(), '%Y-%m-%d') - datetime.timedelta(
                         days=5)
@@ -36,15 +38,9 @@ class TestTextMyWife:
             {'from': 'billybuck',
              'text': 'You have very nice hair'},
             None),
-            ({
-                'from': 'billybuck',
-                'text': 'You have very nice hair',
-                'send_date': self.send_date)},
-             None),
-            ({
-                'from': 'billybuck',
-                'text': 'You have very nice hair',
-                'send_date': (datetime.datetime.strftime(
+            ({'from': 'billybuck',
+              'text': 'You have very nice hair',
+              'send_date': (datetime.datetime.strftime(
                     datetime.datetime.now(), '%Y-%m-%d') - datetime.timedelta(
                         days=4))},
              (datetime.datetime.strftime(

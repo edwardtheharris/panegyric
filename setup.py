@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
+"""Setup tools configuration."""
 
 import setuptools
 
 setuptools.setup(
-    name='Text My Wife',
-    description='Automation for complimenting my wife.',
-    author='Edward Harris',
-    author_email='plebis@hotmail.com',
+    name='Panegyric',
+    description='Automated compliments via text',
+    author='Xander Harris',
+    author_email='xandertheharris@gmail.com',
     entry_points={
-        "console_scripts": "textmywife=textmywife.text:main",
+        "console_scripts": "panegyric=panegyric.text:main",
     },
     install_requires=[
         'python-dotenv',

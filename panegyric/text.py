@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """This module contains the Text class."""
 import datetime
+import sys
 from ruamel import yaml
 
 
@@ -68,7 +69,8 @@ class Text:
 
     def write_messages(self):
         """Write updated messages message list."""
-        yml = yaml.YAML(typ='safe', pure=True)
+        yml = yaml.YAML()
+        yml.dump(self.messages, sys.stdout)
         yml.dump(self.messages, open(self.message_file_path, 'w'))
 
 

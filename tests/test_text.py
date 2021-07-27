@@ -21,7 +21,7 @@ class TestText:
         """Test message retrival."""
         text = Text('tests/compliments.yml')
         text.messages = text.get_all_messages()
-        text.message_file_path = 'tests/out/compliments.yml'
+        text.message_file_path = 'tests/result/compliments.yml'
         test_message = text.get_message()
 
         assert isinstance(test_message, dict)
@@ -29,7 +29,7 @@ class TestText:
         assert test_message.get('from') == 'billybuck'
         assert test_message.get('text') == 'You have very nice hair\n'
 
-        text = Text('tests/out/compliments.yml')
+        text = Text('tests/result/compliments.yml')
         text.messages = text.get_all_messages()
         test_message = text.get_message()
 
@@ -38,8 +38,9 @@ class TestText:
         assert test_message.get('from') == 'billybuck'
         assert test_message.get('text') == 'You have very nice hair\n'
 
-    def test_get_all_messages(self, text, messages):
+    def test_get_all_messages(self, messages):
         """Test get every message."""
+        text = Text('tests/compliments.yml')
         test_messages = text.get_all_messages()
 
         assert isinstance(messages, list)
@@ -58,8 +59,9 @@ class TestText:
              ) - datetime.timedelta(days=5)))
         ]
     )
-    def test_check_send_date(self, text, message, least_recent_date):
+    def test_check_send_date(self, message, least_recent_date):
         """Test recording of most recent send date."""
+        text = Text('test/compliments.yml')
         test_least_recent_date = text.check_send_date(
             message, least_recent_date
         )
@@ -73,7 +75,7 @@ class TestText:
         assert json.dumps(message)
         assert isinstance(test_least_recent_date, datetime.datetime)
 
-    def test_send_message(self, text):
+    def test_send_message(self):
         """Validate that the API response is what we expect."""
         dotenv.load_dotenv()
         test_key = os.getenv('api_key')
@@ -84,11 +86,15 @@ class TestText:
         })
         assert isinstance(resp.json(), dict)
 
-    def test_write_messages(self, text):
+    def test_write_messages(self):
         """Test update of message file."""
-        assert True
+        text = Text('tests/compliments.yml')
+        text.messages = text.get_all_messages()
+        text.message_file_path = 'tests/result/compliments.yml'
+        text.write_messages()
+        assert False
 
-    def test_message_rate(self, text):
+    def test_message_rate(self):
         """Verify that we send one message a day."""
         # messages = text.get_all_messages()
 

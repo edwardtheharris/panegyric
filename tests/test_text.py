@@ -24,12 +24,12 @@ class TestText:
         print(json.dumps({"some": "value"}))
         assert True
 
-    def test_get_all_messages(self, text):
+    def test_get_all_messages(self, text, messages):
         """Test get every message."""
-        messages = text.get_all_messages('tests/compliments.yml')
+        test_messages = text.get_all_messages('tests/compliments.yml')
 
         assert isinstance(messages, list)
-        assert True
+        assert test_messages == messages
 
     @pytest.mark.parametrize(
         'message, least_recent_date', [(

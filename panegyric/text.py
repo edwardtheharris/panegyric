@@ -33,12 +33,7 @@ class Text:
         return message
 
     def check_send_date(self, message, least_recent_date):
-        """Check that this is least recently sent message.
-
-        'But polymorphism is way better,' blah blah; we
-        just want it to work right now. I'll write
-        a dispatch method later.
-        """
+        """Check that this is least recently sent message."""
         if (message.get('send_date')
                 and least_recent_date is None):
             least_recent_date = datetime.datetime.strptime(

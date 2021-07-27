@@ -11,6 +11,7 @@ import requests
 
 class TestText:
     """Test class for text my wife package."""
+
     send_date = datetime.datetime.strptime(
                     datetime.datetime.now(), '%Y-%m-%d') - datetime.timedelta(
                         days=5)

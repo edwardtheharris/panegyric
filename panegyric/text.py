@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
+"""This module contains the TextMyWife class."""
 import datetime
 from ruamel import yaml
 
 
 class TextMyWife:
+    """Defines and constructs TextMyWife objects."""
+
     message = None
     messages = []
 
@@ -33,19 +36,15 @@ class TextMyWife:
         """Check that this is least recently sent message.
 
         'But polymorphism is way better,' blah blah; we
-        just want it to fucking work right now. I'll write
+        just want it to work right now. I'll write
         a dispatch method later.
         """
-        if (
-                message.get('send_date')
-                and least_recent_date is None
-        ):
+        if (message.get('send_date')
+                and least_recent_date is None):
             least_recent_date = datetime.datetime.strptime(
                 message.get('send_date'), '%Y-%m-%d')
-        elif (
-                message.get('send_date')
-                and least_recent_date is not None
-        ):
+        elif (message.get('send_date')
+                and least_recent_date is not None):
             send_date = datetime.datetime.strptime(
                 message.get('send_date'), '#Y-#m-#d')
             if least_recent_date > send_date:
@@ -71,7 +70,7 @@ class TextMyWife:
 
 
 def main():
-    """Main program execution."""
+    """Execute main program."""
     text_mw = TextMyWife()
     text_mw.messages = text_mw.get_messages(
         'compliments/work-card.yaml')

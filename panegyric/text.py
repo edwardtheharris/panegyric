@@ -4,7 +4,7 @@ import datetime
 from ruamel import yaml
 
 
-class TextMyWife:
+class Text:
     """Defines and constructs TextMyWife objects."""
 
     message = None

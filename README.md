@@ -1,5 +1,5 @@
-# textmywife
+# panegyric
 
-[![travis ci build status](https://travis-ci.com/edwardtheharris/textmywife.svg?branch=master)](https://travis-ci.com/github/edwardtheharris/textmywife) [![circle ci build status](https://circleci.com/gh/edwardtheharris/textmywife.svg?style=svg)](https://app.circleci.com/pipelines/github/edwardtheharris/textmywife)
+[![circle ci build status](https://circleci.com/gh/edwardtheharris/panegyric.svg?style=svg)](https://app.circleci.com/pipelines/github/edwardtheharris/panegyric) [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
-A tool to automate complimenting my wife.
+A tool for sending praise via text on a regular schedule.

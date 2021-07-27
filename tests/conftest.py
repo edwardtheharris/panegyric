@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
+"""Configuration for panegyric tests."""
 
 import pytest
-import textmywife.text
+import panegyric.text
 
 
 @pytest.fixture
-def text_mw():
+def text():
     """Return an instance of TextMyWife."""
-    return textmywife.text.TextMyWife()
+    return panegyric.text.Text()
 
 
 @pytest.fixture

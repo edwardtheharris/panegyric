@@ -23,20 +23,17 @@ class Text:
         message = None
 
         for message_item in all_messages:
-            print(message_item)
             least_recent_date = self.check_send_date(
                 message_item, least_recent_date)
-            print(least_recent_date)
-            print(self.current_date)
-            if least_recent_date <= self.current_date:
+            if (
+                    least_recent_date <= self.current_date
+                    and message is None):
                 current_date_str = datetime.datetime.strftime(
                     self.current_date, '%Y-%m-%d'
                 )
                 message_item.update(
                     {'send_date': current_date_str})
                 message = message_item
-                print(message)
-
         return message
 
     def check_send_date(self, message, least_recent_date):

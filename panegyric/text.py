@@ -1,34 +1,36 @@
 #!/usr/bin/env python3
-"""This module contains the TextMyWife class."""
+"""This module contains the Text class."""
 import datetime
 from ruamel import yaml
 
 
 class Text:
-    """Defines and constructs TextMyWife objects."""
+    """Defines and constructs Text objects."""
 
+    current_date = None
     message = None
     messages = []
 
     def __init__(self):
-        """Initialize a TextMyWife instance."""
-        pass
+        """Initialize a Text instance."""
+        self.current_date = datetime.datetime.now()
 
     def get_message(self):
         """Get a message to send."""
         all_messages = self.messages
-        current_date = datetime.datetime.strptime(
-            '%Y-%m-%d', datetime.datetime.now()
-        )
         least_recent_date = None
         message = None
 
         for message_item in all_messages:
+            print(message_item)
             least_recent_date = self.check_send_date(
                 message_item, least_recent_date)
-            if least_recent_date <= current_date:
+            if least_recent_date <= self.current_date:
+                current_date_str = datetime.datetime.strftime(
+                    self.current_date, '%Y-%m-%d'
+                )
                 message = message_item.update(
-                    {'send_date': current_date})
+                    {'send_date': current_date_str})
 
         return message
 
@@ -45,8 +47,7 @@ class Text:
             if least_recent_date > send_date:
                 least_recent_date = send_date
         else:
-            least_recent_date = datetime.datetime.strftime(
-                datetime.datetime.now(), '%Y-%m-%d')
+            least_recent_date = datetime.datetime.now()
         return least_recent_date
 
     def get_all_messages(self, message_file_location):

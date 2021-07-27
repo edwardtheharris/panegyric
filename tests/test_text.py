@@ -9,6 +9,8 @@ import dotenv
 import pytest
 import requests
 
+from ruamel.yaml import YAML
+
 from panegyric.text import Text
 
 
@@ -27,16 +29,20 @@ class TestText:
         assert isinstance(test_message, dict)
         assert json.dumps(test_message)
         assert test_message.get('from') == 'billybuck'
-        assert test_message.get('text') == 'You have very nice hair\n'
+        assert test_message.get('text') == 'You have very nice hair'
 
         text = Text('tests/result/compliments.yml')
         text.messages = text.get_all_messages()
         test_message = text.get_message()
+        print(test_message)
 
+        yml = YAML()
+        test_data = yml.load(open('tests/result/compliments.yml'))
+        assert text.messages == test_data
         assert isinstance(test_message, dict)
         assert json.dumps(test_message)
         assert test_message.get('from') == 'billybuck'
-        assert test_message.get('text') == 'You have very nice hair\n'
+        assert test_message.get('text') == 'You have very nice hair'
 
     def test_get_all_messages(self, messages):
         """Test get every message."""
@@ -90,9 +96,11 @@ class TestText:
         """Test update of message file."""
         text = Text('tests/compliments.yml')
         text.messages = text.get_all_messages()
-        text.message_file_path = 'tests/result/compliments.yml'
         text.write_messages()
-        assert False
+
+        yml = YAML()
+        test_data = yml.load(open('tests/compliments.yml'))
+        assert text.messages == test_data
 
     def test_message_rate(self):
         """Verify that we send one message a day."""

@@ -21,9 +21,8 @@ class TestText:
 
         assert isinstance(test_message, dict)
         assert json.dumps(test_message)
-        assert test_message.get('from') == 'billybuck'
-        assert test_message.get('text') == 'You have very nice hair.'
-        assert False
+        assert test_message.get('from') == 'someotherguy'
+        assert test_message.get('text') == 'My favorite'
 
     def test_get_all_messages(self, text, messages):
         """Test get every message."""

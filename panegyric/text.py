@@ -13,7 +13,8 @@ class Text:
 
     def __init__(self):
         """Initialize a Text instance."""
-        self.current_date = datetime.datetime.now()
+        self.current_date = datetime.datetime.now().replace(
+            hour=0, minute=0, second=0, microsecond=0)
 
     def get_message(self):
         """Get a message to send."""
@@ -25,12 +26,16 @@ class Text:
             print(message_item)
             least_recent_date = self.check_send_date(
                 message_item, least_recent_date)
+            print(least_recent_date)
+            print(self.current_date)
             if least_recent_date <= self.current_date:
                 current_date_str = datetime.datetime.strftime(
                     self.current_date, '%Y-%m-%d'
                 )
-                message = message_item.update(
+                message_item.update(
                     {'send_date': current_date_str})
+                message = message_item
+                print(message)
 
         return message
 
@@ -47,7 +52,7 @@ class Text:
             if least_recent_date > send_date:
                 least_recent_date = send_date
         else:
-            least_recent_date = datetime.datetime.now()
+            least_recent_date = self.current_date
         return least_recent_date
 
     def get_all_messages(self, message_file_location):

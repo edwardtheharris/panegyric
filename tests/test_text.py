@@ -12,11 +12,7 @@ import requests
 class TestText:
     """Test class for text my wife package."""
 
-    send_date = datetime.datetime.strptime(
-                    datetime.datetime.now(), '%Y-%m-%d') - datetime.timedelta(
-                        days=5)
-
-    send_date = '2021-07-26'
+    send_date = (datetime.datetime.now() - datetime.timedelta(days=5))
 
     def test_get_message(self, text):
         """Test message retrival."""

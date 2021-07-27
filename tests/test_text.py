@@ -49,7 +49,7 @@ class TestText:
     )
     def test_check_send_date(self, text, message, least_recent_date):
         """Test recording of most recent send date."""
-        current_date = datetime.datetime.now()
+        # current_date = datetime.datetime.now()
         test_least_recent_date = text.check_send_date(
             message, least_recent_date
         )

@@ -71,11 +71,11 @@ class Text:
 
 def main():
     """Execute main program."""
-    text_mw = TextMyWife()
-    text_mw.messages = text_mw.get_messages(
+    text = Text()
+    text.messages = text.get_messages(
         'compliments/work-card.yaml')
-    text_mw.get_message()
-    print(text_mw.messages)
+    text.get_message()
+    print(text.messages)
 
 
 if __name__ == '__main__':

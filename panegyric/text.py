@@ -10,11 +10,13 @@ class Text:
     current_date = None
     message = None
     messages = []
+    message_file_path = None
 
-    def __init__(self):
+    def __init__(self, message_file_path):
         """Initialize a Text instance."""
         self.current_date = datetime.datetime.now().replace(
             hour=0, minute=0, second=0, microsecond=0)
+        self.message_file_path = message_file_path
 
     def get_message(self):
         """Get a message to send."""
@@ -34,6 +36,7 @@ class Text:
                 message_item.update(
                     {'send_date': current_date_str})
                 message = message_item
+        self.write_messages()
         return message
 
     def check_send_date(self, message, least_recent_date):
@@ -52,29 +55,28 @@ class Text:
             least_recent_date = self.current_date
         return least_recent_date
 
-    def get_all_messages(self, message_file_location):
+    def get_all_messages(self):
         """Get all messages."""
         yml = yaml.YAML(typ='safe', pure=True)
-        messages = yml.load(
-            open(message_file_location))
-        return messages
+        self.messages = yml.load(
+            open(self.message_file_path))
+        return self.messages
 
     def send_message(self):
         """Send the selected message."""
         return
 
-    def iterate_message(self):
-        """Iterate message list."""
-        return
+    def write_messages(self):
+        """Write updated messages message list."""
+        yml = yaml.YAML(typ='safe', pure=True)
+        yml.dump(self.messages, open(self.message_file_path, 'w'))
 
 
 def main():
     """Execute main program."""
-    text = Text()
-    text.messages = text.get_messages(
-        'compliments/work-card.yaml')
-    text.get_message()
-    print(text.messages)
+    text = Text('compliments/work-card.yaml')
+    text.get_all_messages()
+    text.message = text.get_message()
 
 
 if __name__ == '__main__':

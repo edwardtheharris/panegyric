@@ -4,14 +4,6 @@
 import pytest
 from ruamel import yaml
 
-import panegyric.text
-
-
-@pytest.fixture
-def text():
-    """Return an instance of TextMyWife."""
-    return panegyric.text.Text()
-
 
 @pytest.fixture
 def message():

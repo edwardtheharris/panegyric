@@ -4,9 +4,12 @@
 import datetime
 import json
 import os
+
 import dotenv
 import pytest
 import requests
+
+from panegyric.text import Text
 
 
 class TestText:
@@ -14,9 +17,20 @@ class TestText:
 
     send_date = (datetime.datetime.now() - datetime.timedelta(days=5))
 
-    def test_get_message(self, text):
+    def test_get_message(self):
         """Test message retrival."""
-        text.messages = text.get_all_messages('tests/compliments.yml')
+        text = Text('tests/compliments.yml')
+        text.messages = text.get_all_messages()
+        text.message_file_path = 'tests/out/compliments.yml'
+        test_message = text.get_message()
+
+        assert isinstance(test_message, dict)
+        assert json.dumps(test_message)
+        assert test_message.get('from') == 'billybuck'
+        assert test_message.get('text') == 'You have very nice hair\n'
+
+        text = Text('tests/out/compliments.yml')
+        text.messages = text.get_all_messages()
         test_message = text.get_message()
 
         assert isinstance(test_message, dict)
@@ -26,7 +40,7 @@ class TestText:
 
     def test_get_all_messages(self, text, messages):
         """Test get every message."""
-        test_messages = text.get_all_messages('tests/compliments.yml')
+        test_messages = text.get_all_messages()
 
         assert isinstance(messages, list)
         assert test_messages == messages
@@ -70,15 +84,8 @@ class TestText:
         })
         assert isinstance(resp.json(), dict)
 
-    def test_message_iteration(self, text):
-        """Test that the same message isn't sent twice."""
-        # tmw_instance = textmywife.text.TextMyWife()
-
-        # for message in tmw_instance.get_all_messages():
-        #     assert message.get('send_date') != '2020-09-06'
-        # assert isinstance(tmw_instance, textmywife.text.TextMyWife)
-        test_date = datetime.datetime.now()
-        assert isinstance(test_date, datetime.datetime)
+    def test_write_messages(self, text):
+        """Test update of message file."""
         assert True
 
     def test_message_rate(self, text):

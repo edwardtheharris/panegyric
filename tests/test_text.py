@@ -17,7 +17,9 @@ from panegyric.text import Text
 class TestText:
     """Test class for Text class."""
 
-    send_date = (datetime.datetime.now() - datetime.timedelta(days=5))
+    send_date = (datetime.datetime.now().replace(
+        hour=0, minute=0, second=0, microsecond=0
+    ) - datetime.timedelta(days=5))
 
     def test_get_message(self):
         """Test message retrival."""
@@ -34,7 +36,6 @@ class TestText:
         text = Text('tests/result/compliments.yml')
         text.messages = text.get_all_messages()
         test_message = text.get_message()
-        print(test_message)
 
         yml = YAML()
         test_data = yml.load(open('tests/result/compliments.yml'))
@@ -59,7 +60,11 @@ class TestText:
             None),
             ({'from': 'billybuck',
               'text': 'You have very nice hair',
-              'send_date': '2021-07-21'},
+              'send_date': datetime.datetime.strftime(
+                datetime.datetime.now().replace(
+                    hour=0, minute=0, second=0, microsecond=0
+                ) - datetime.timedelta(days=5), '%Y-%m-%d'
+              )},
              (datetime.datetime.now().replace(
                  hour=0, minute=0, second=0, microsecond=0
              ) - datetime.timedelta(days=5)))

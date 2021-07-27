@@ -36,15 +36,10 @@ class TestText:
             {'from': 'billybuck',
              'text': 'You have very nice hair'},
             None),
-            # ({'from': 'billybuck',
-            #   'text': 'You have very nice hair',
-            #   'send_date': (datetime.datetime.strftime(
-            #         datetime.datetime.now(),
-            #         '%Y-%m-%d') - datetime.timedelta(
-            #             days=4))},
-            #  (datetime.datetime.strftime(
-            #      datetime.datetime.now(), '%Y-%m-%d') - datetime.timedelta(
-            #      days=5)))
+            ({'from': 'billybuck',
+              'text': 'You have very nice hair',
+              'send_date': '2021-07-21'},
+             (datetime.datetime.now() - datetime.timedelta(days=5)))
         ]
     )
     def test_check_send_date(self, text, message, least_recent_date):

@@ -46,7 +46,7 @@ class Text:
         elif (message.get('send_date')
                 and least_recent_date is not None):
             send_date = datetime.datetime.strptime(
-                message.get('send_date'), '#Y-#m-#d')
+                message.get('send_date'), '%Y-%m-%d')
             if least_recent_date > send_date:
                 least_recent_date = send_date
         else:
@@ -56,7 +56,8 @@ class Text:
 
     def get_all_messages(self, message_file_location):
         """Get all messages."""
-        messages = yaml.safe_load(
+        yml = yaml.YAML(typ='safe', pure=True)
+        messages = yml.load(
             open(message_file_location))
         return messages
 

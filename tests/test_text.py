@@ -3,6 +3,7 @@
 
 import datetime
 import json
+import pprint
 import os
 
 import dotenv
@@ -95,6 +96,7 @@ class TestText:
             'message': 'the buck stops here - harry s truman',
             'key': f'{test_key}_test',
         })
+        pprint.pprint(resp.__dict__)
         assert isinstance(resp.json(), dict)
 
     def test_write_messages(self):

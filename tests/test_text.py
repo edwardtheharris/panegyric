@@ -88,22 +88,22 @@ class TestText:
         assert json.dumps(message)
         assert isinstance(test_least_recent_date, datetime.datetime)
 
-    # @patch('requests.post')
-    def test_send_message(self):  # , mocked_post):
+    @patch('requests.post')
+    def test_send_message(self, mocked_post):
         """Validate that the API response is what we expect."""
         test_key = 'textbelt'
         message_dict = {
-            'phone': '4243219495',
+            'phone': '2138765309',
             'message': 'the buck stops here - harry s truman',
             'key': f'{test_key}_test',
         }
-        # response_dict = json.load(open('tests/fixtures/resp.json'))
+        response_dict = json.load(open('tests/fixtures/resp.json'))
         url = 'https://textbelt.com/text'
-        # mocked_post.return_value = Mock(
-        #     status_code=200,
-        #     json=lambda: response_dict)
+        mocked_post.return_value = Mock(
+            status_code=200,
+            json=lambda: response_dict)
         resp = requests.post(url, message_dict)
-        json.dump(resp.json(), open('tests/fixtures/resp.json', 'w'))
+
         pprint.pprint(resp.__dict__)
         pprint.pprint(resp.json())
         assert resp.status_code == 200

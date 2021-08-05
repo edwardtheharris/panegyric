@@ -6,6 +6,9 @@ import json
 import pprint
 import os
 
+from unittest.mock import patch
+from unittest.mock import Mock
+
 import dotenv
 import pytest
 import requests
@@ -87,9 +90,11 @@ class TestText:
         assert json.dumps(message)
         assert isinstance(test_least_recent_date, datetime.datetime)
 
-    def test_send_message(self):
+    @patch('requests.post')
+    def test_send_message(self, mocked_post):
         """Validate that the API response is what we expect."""
         dotenv.load_dotenv()
+        mocked_post.return_value = Mock(status_code=201, json=lambda : {"data": {"id": "test"}})
         test_key = os.getenv('api_key')
         resp = requests.post('https://textbelt.com/text', {
             'phone': '4243219495',
@@ -97,6 +102,7 @@ class TestText:
             'key': f'{test_key}_test',
         })
         pprint.pprint(resp.__dict__)
+        assert resp.status_code == 201
         assert isinstance(resp.json(), dict)
 
     def test_write_messages(self):

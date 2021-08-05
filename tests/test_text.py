@@ -97,10 +97,10 @@ class TestText:
         text_from = text_message.get('from')
         text_text = text_message.get('text')
         test_key = text.api_key
-        
+
         message_dict = {
             'phone': '2138765309',
-            'message': f'{text_text}} - {text_from}',
+            'message': f'{text_text} - {text_from}',
             'key': f'{test_key}_test',
         }
         response_dict = json.load(open('tests/fixtures/resp.json'))
@@ -114,7 +114,6 @@ class TestText:
         pprint.pprint(resp.json())
         assert resp.status_code == 200
         assert isinstance(resp.json(), dict)
-        assert False
 
     def test_write_messages(self):
         """Test update of message file."""

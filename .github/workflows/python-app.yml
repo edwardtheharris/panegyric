@@ -35,4 +35,4 @@ jobs:
     - name: Test with pytest
       run: |
         pipenv run pytest --junit-xml report.xml
-        pipenv run pytest --coverage --cov-report coverage.xml
+        pipenv run pytest --cov --cov-report=xml

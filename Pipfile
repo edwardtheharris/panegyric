@@ -8,7 +8,6 @@ pytest = "*"
 pylama = "*"
 autopep8 = "*"
 flake8 = "*"
-pytest-cov = "*"
 
 [packages]
 "ruamel.yaml" = "*"

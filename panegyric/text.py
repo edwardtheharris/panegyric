@@ -8,6 +8,7 @@ from ruamel import yaml
 class Text:
     """Defines and constructs Text objects."""
 
+    api_key = 'textbelt'
     current_date = None
     message = None
     messages = []

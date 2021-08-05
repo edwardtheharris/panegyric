@@ -91,10 +91,16 @@ class TestText:
     @patch('requests.post')
     def test_send_message(self, mocked_post):
         """Validate that the API response is what we expect."""
-        test_key = 'textbelt'
+        text = Text('tests/fixtures/compliments-no-date.yml')
+        text.messages = text.get_all_messages()
+        text_message = text.get_message()
+        text_from = text_message.get('from')
+        text_text = text_message.get('text')
+        test_key = text.api_key
+        
         message_dict = {
             'phone': '2138765309',
-            'message': 'the buck stops here - harry s truman',
+            'message': f'{text_text}} - {text_from}',
             'key': f'{test_key}_test',
         }
         response_dict = json.load(open('tests/fixtures/resp.json'))

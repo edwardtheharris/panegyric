@@ -4,12 +4,10 @@
 import datetime
 import json
 import pprint
-import os
 
 from unittest.mock import patch
 from unittest.mock import Mock
 
-import dotenv
 import pytest
 import requests
 
@@ -93,19 +91,21 @@ class TestText:
     @patch('requests.post')
     def test_send_message(self, mocked_post):
         """Validate that the API response is what we expect."""
-        dotenv.load_dotenv()
-        mocked_post.return_value = Mock(
-            status_code=201,
-            json=lambda: {"data": {"id": "test"}})
-        test_key = os.getenv('api_key')
-        resp = requests.post('https://textbelt.com/text', {
+        test_key = 'textbelt'
+        message_dict = {
             'phone': '4243219495',
             'message': 'the buck stops here - harry s truman',
             'key': f'{test_key}_test',
-        })
+        }
+        url = 'https://textbelt.com/text'
+        mocked_post.return_value = Mock(
+            status_code=200,
+            json=lambda: json.load(open('tests/fixtures/resp.json')))
+        resp = requests.post(url, message_dict)
         pprint.pprint(resp.__dict__)
-        assert resp.status_code == 201
+        assert resp.status_code == 200
         assert isinstance(resp.json(), dict)
+        assert False
 
     def test_write_messages(self):
         """Test update of message file."""

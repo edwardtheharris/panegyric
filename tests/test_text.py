@@ -65,9 +65,9 @@ class TestText:
             ({'from': 'billybuck',
               'text': 'You have very nice hair',
               'send_date': datetime.datetime.strftime(
-                datetime.datetime.now().replace(
-                    hour=0, minute=0, second=0, microsecond=0
-                ) - datetime.timedelta(days=5), '%Y-%m-%d'
+                  datetime.datetime.now().replace(
+                      hour=0, minute=0, second=0, microsecond=0
+                  ) - datetime.timedelta(days=5), '%Y-%m-%d'
               )},
              (datetime.datetime.now().replace(
                  hour=0, minute=0, second=0, microsecond=0
@@ -94,7 +94,9 @@ class TestText:
     def test_send_message(self, mocked_post):
         """Validate that the API response is what we expect."""
         dotenv.load_dotenv()
-        mocked_post.return_value = Mock(status_code=201, json=lambda : {"data": {"id": "test"}})
+        mocked_post.return_value = Mock(
+            status_code=201,
+            json=lambda: {"data": {"id": "test"}})
         test_key = os.getenv('api_key')
         resp = requests.post('https://textbelt.com/text', {
             'phone': '4243219495',

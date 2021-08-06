@@ -2,6 +2,9 @@
 """This module contains the Text class."""
 import datetime
 import sys
+
+import requests
+
 from ruamel import yaml
 
 
@@ -13,6 +16,8 @@ class Text:
     message = None
     messages = []
     message_file_path = None
+    phone = '0000000000'
+    url = 'https://textbelt.com/text'
 
     def __init__(self, message_file_path):
         """Initialize a Text instance."""
@@ -66,7 +71,17 @@ class Text:
 
     def send_message(self):
         """Send the selected message."""
-        return
+        text_from = self.message.get('from')
+        text_text = self.message.get('text')
+
+        message_dict = {
+            'phone': self.phone,
+            'message': f'{text_text} - {text_from}',
+            'key': self.api_key,
+        }
+
+        resp = requests.post(self.url, message_dict)
+        return resp
 
     def write_messages(self):
         """Write updated messages message list."""

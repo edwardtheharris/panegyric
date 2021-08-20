@@ -27,7 +27,7 @@ jobs:
         if [ -f Pipfile ]; 
         then 
           pip install pipenv;
-          pipenv install --dev
+          pipenv install --dev --skip-lock
           pipenv run pip freeze > reqs
           pip install -r reqs
         fi

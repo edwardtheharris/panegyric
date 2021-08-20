@@ -4,16 +4,15 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-pytest = "*"
-pylama = "*"
 autopep8 = "*"
-pytest-cov = "*"
+pylama = "*"
 pylint = "*"
 pylint2junit = "*"
+pytest = "*"
+pytest-cov = "*"
 
 [packages]
-"ruamel.yaml" = "*"
-tox = "*"
 python-dotenv = "*"
 requests = "*"
-autopep8 = "*"
+"ruamel.yaml" = "*"
+tox = "*"

@@ -15,7 +15,7 @@ jobs:
           command: pipenv lock
           name: lock pipenv
       - run: 
-          command: pipenv sync --dev
+          command: pipenv install --dev
           name: sync pipenv
       - run:
           command: pipenv run pylama --report pylama.lint

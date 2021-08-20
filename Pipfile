@@ -4,14 +4,12 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-pytest = "*"
-pylama = "*"
 autopep8 = "*"
 flake8 = "*"
+pytest = "*"
+pylama = "*"
 
 [packages]
+requests = "*"
 "ruamel.yaml" = "*"
 tox = "*"
-python-dotenv = "*"
-requests = "*"
-autopep8 = "*"

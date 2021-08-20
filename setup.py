@@ -12,7 +12,6 @@ setuptools.setup(
         "console_scripts": "panegyric=panegyric.text:main",
     },
     install_requires=[
-        'python-dotenv',
         'requests',
         'ruamel.yaml'
     ],

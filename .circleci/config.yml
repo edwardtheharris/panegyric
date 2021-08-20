@@ -21,7 +21,7 @@ jobs:
           command: pipenv run pylama --report pylama.lint
           name: pylama
       - run: 
-          command: pipenv run pylint -f parseable --output results.lint
+          command: pipenv run pylint -f parseable --output results.lint src
           name: pylint
       - run:
           command: pipenv run pylint2junit -i results.lint -o results.xml

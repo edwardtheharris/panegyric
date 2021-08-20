@@ -75,11 +75,15 @@ jobs:
           pip install -r reqs
         fi
         pip install -e .
+        # Set the `CODEQL-PYTHON` environment variable to the Python executable
+        # that includes the dependencies
+        echo "CODEQL_PYTHON=$(which python)" >> $GITHUB_ENV
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
       with:
-        languages: ${{ matrix.language }}
+        languages: python
+        setup-python-dependencies: false
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1

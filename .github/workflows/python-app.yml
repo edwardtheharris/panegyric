@@ -40,3 +40,4 @@ jobs:
     - name: Test with pytest
       run: |
         pytest --junit-xml=results.xml
+        pytest --cov=src --cov-report=coverage.xml

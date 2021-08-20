@@ -31,6 +31,7 @@ jobs:
           pipenv run pip freeze > reqs
           pip install -r reqs
         fi
+        pip install -e .
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
@@ -40,3 +41,8 @@ jobs:
     - name: Test with pytest
       run: |
         pytest --junit-xml=results.xml
+        pytest --cov=src
+    - name: "Upload coverage to Codecov"
+      uses: codecov/codecov-action@v1
+      with:
+        fail_ci_if_error: true

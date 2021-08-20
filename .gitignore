@@ -1,9 +1,10 @@
-*.lock
+.coverage
 .env
+*.lock
+.pytest_cache/
 .tox/
 *egg*
 __pycache__/
-.pytest_cache/
-.coverage
 coverage.xml
-results.xml
+dist/
+results.*

@@ -15,11 +15,14 @@ jobs:
           command: pipenv lock
           name: lock pipenv
       - run: 
-          command: pipenv sync --dev
+          command: pipenv install --dev
           name: sync pipenv
       - run:
-          command: pipenv run pylama --report results.xml
-          name: lint
+          command: pipenv run pylama --report pylama.lint
+          name: pylama
+      - run: 
+          command: pipenv run pylint --exit-zero --output=results.xml src/
+          name: pylint
       - store_test_results:
           path: .
   test:

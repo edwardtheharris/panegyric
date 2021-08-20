@@ -18,8 +18,14 @@ jobs:
           command: pipenv sync --dev
           name: sync pipenv
       - run:
-          command: pipenv run pylama --report results.xml
-          name: lint
+          command: pipenv run pylama --report pylama.lint
+          name: pylama
+      - run: 
+          command: pipenv run pylint -f parseable --output results.lint
+          name: pylint
+      - run:
+          command: pipenv run pylint2junit -i results.lint -o results.xml
+          name: pylint2junit
       - store_test_results:
           path: .
   test:

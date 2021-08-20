@@ -20,7 +20,7 @@ setuptools.setup(
     ],
     long_description=long_description,
     long_description_content_type="text/markdown",
-    name='Panegyric-xandertheharris',
+    name='Panegyric',
     package_dir={"": "src"},
     packages=setuptools.find_packages(where="src"),
     project_urls={

@@ -93,6 +93,7 @@ class TestText:
         """Validate that the API response is what we expect."""
         text = Text('tests/fixtures/compliments-no-date.yml')
         text.messages = text.get_all_messages()
+        text.message_file_path = 'tests/fixtures/compliments-with-date.yml'
         text_message = text.get_message()
         text_from = text_message.get('from')
         text_text = text_message.get('text')
@@ -110,8 +111,8 @@ class TestText:
             json=lambda: response_dict)
         resp = requests.post(url, message_dict)
 
-        pprint.pprint(resp.__dict__)
-        pprint.pprint(resp.json())
+        pprint.pprint({'resp.__dict__': resp.__dict__,
+                       'resp.json()': resp.json()})
         assert resp.status_code == 200
         assert isinstance(resp.json(), dict)
 
@@ -127,11 +128,13 @@ class TestText:
 
     def test_message_rate(self):
         """Verify that we send one message a day."""
-        # messages = text.get_all_messages()
+        text = Text('tests/compliments.yml')
+        text.messages = text.get_all_messages()
 
-        # date_list = []
-        # for message in messages:
-        #     date_list.append(message.get('send_date'))
+        date_list = []
+        for message in text.messages:
+            pprint.pprint(message)
+            date_list.append(message.get('send_date'))
 
         # assert set(date_list) == date_list
         assert True

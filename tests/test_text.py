@@ -3,7 +3,6 @@
 
 import datetime
 import json
-import pprint
 
 from unittest.mock import patch
 from unittest.mock import Mock

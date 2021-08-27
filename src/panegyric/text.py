@@ -92,9 +92,12 @@ class Text:
 
 def main():
     """Execute main program."""
-    text = Text('compliments/work-card.yaml')
+    text = Text('src/compliments/work-card.yaml')
     text.get_all_messages()
     text.message = text.get_message()
+    text.api_key = "textbelt_test"
+    result = text.send_message()
+    print(result.__dict__)
 
 
 if __name__ == '__main__':

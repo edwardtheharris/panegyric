@@ -87,7 +87,8 @@ class Text:
         """Write updated messages message list."""
         yml = yaml.YAML()
         yml.dump(self.messages, sys.stdout)
-        yml.dump(self.messages, open(self.message_file_path, 'w'))
+        with open(self.message_file_path, 'w', encoding='utf-8') as mfp_fh:
+            yml.dump(self.messages, mfp_fh)
 
 
 def main():

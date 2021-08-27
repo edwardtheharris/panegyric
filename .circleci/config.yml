@@ -21,10 +21,12 @@ jobs:
           command: pipenv run pylama --report pylama.lint
           name: pylama
       - run: 
-          command: pipenv run pylint --exit-zero --output=results.xml src/
+          command: |
+            mkdir -pv results/pylint
+            pipenv run pylint --exit-zero --output=results/pylint/results.xml src/
           name: pylint
       - store_test_results:
-          path: .
+          path: results
   test:
     executor: python/default
     steps:
@@ -42,10 +44,12 @@ jobs:
           command: pipenv run pip install -e .
           name: install module
       - run:
-          command: pipenv run pytest --junit-xml results.xml
+          command: |
+            mkdir -pv results/pytest
+            pipenv run pytest --junit-xml results/pytest/results.xml
           name: test
       - store_test_results:
-          path: .
+          path: results
 
 workflows:
   main:

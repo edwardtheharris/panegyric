@@ -1,44 +1,54 @@
 #!/usr/bin/env python3
-"""This module contains the TextMyWife class."""
+"""This module contains the Text class."""
 import datetime
+import pprint
+import sys
+
+import requests
+
 from ruamel import yaml
 
 
 class Text:
-    """Defines and constructs TextMyWife objects."""
+    """Defines and constructs Text objects."""
 
+    api_key = 'textbelt'
+    current_date = None
     message = None
     messages = []
+    message_file_path = None
+    phone = '0000000000'
+    url = 'https://textbelt.com/text'
 
-    def __init__(self):
-        """Initialize a TextMyWife instance."""
-        pass
+    def __init__(self, message_file_path):
+        """Initialize a Text instance."""
+        self.current_date = datetime.datetime.now().replace(
+            hour=0, minute=0, second=0, microsecond=0)
+        self.message_file_path = message_file_path
 
     def get_message(self):
         """Get a message to send."""
         all_messages = self.messages
-        current_date = datetime.datetime.strptime(
-            '%Y-%m-%d', datetime.datetime.now()
-        )
         least_recent_date = None
         message = None
 
         for message_item in all_messages:
             least_recent_date = self.check_send_date(
                 message_item, least_recent_date)
-            if least_recent_date <= current_date:
-                message = message_item.update(
-                    {'send_date': current_date})
-
+            if (
+                    least_recent_date <= self.current_date
+                    and message is None):
+                current_date_str = datetime.datetime.strftime(
+                    self.current_date, '%Y-%m-%d'
+                )
+                message_item.update(
+                    {'send_date': current_date_str})
+                message = message_item
+        self.write_messages()
         return message
 
     def check_send_date(self, message, least_recent_date):
-        """Check that this is least recently sent message.
-
-        'But polymorphism is way better,' blah blah; we
-        just want it to work right now. I'll write
-        a dispatch method later.
-        """
+        """Check that this is least recently sent message."""
         if (message.get('send_date')
                 and least_recent_date is None):
             least_recent_date = datetime.datetime.strptime(
@@ -46,36 +56,49 @@ class Text:
         elif (message.get('send_date')
                 and least_recent_date is not None):
             send_date = datetime.datetime.strptime(
-                message.get('send_date'), '#Y-#m-#d')
-            if least_recent_date > send_date:
-                least_recent_date = send_date
+                message.get('send_date'), '%Y-%m-%d')
+            least_recent_date = min(least_recent_date, send_date)
         else:
-            least_recent_date = datetime.datetime.strftime(
-                datetime.datetime.now(), '%Y-%m-%d')
+            least_recent_date = self.current_date
         return least_recent_date
 
-    def get_all_messages(self, message_file_location):
+    def get_all_messages(self):
         """Get all messages."""
-        messages = yaml.safe_load(
-            open(message_file_location))
-        return messages
+        yml = yaml.YAML(typ='safe', pure=True)
+        with open(self.message_file_path, 'r', encoding='utf-8') as mfp_fh:
+            self.messages = yml.load(mfp_fh)
+        return self.messages
 
     def send_message(self):
         """Send the selected message."""
-        return
+        text_from = self.message.get('from')
+        text_text = self.message.get('text')
 
-    def iterate_message(self):
-        """Iterate message list."""
-        return
+        message_dict = {
+            'phone': self.phone,
+            'message': f'{text_text} - {text_from}',
+            'key': self.api_key,
+        }
+
+        resp = requests.post(self.url, message_dict)
+        return resp
+
+    def write_messages(self):
+        """Write updated messages message list."""
+        yml = yaml.YAML()
+        yml.dump(self.messages, sys.stdout)
+        with open(self.message_file_path, 'w', encoding='utf-8') as mfp_fh:
+            yml.dump(self.messages, mfp_fh)
 
 
 def main():
     """Execute main program."""
-    text = Text()
-    text.messages = text.get_messages(
-        'compliments/work-card.yaml')
-    text.get_message()
-    print(text.messages)
+    text = Text('src/compliments/work-card.yaml')
+    text.get_all_messages()
+    text.message = text.get_message()
+    text.api_key = "textbelt_test"
+    result = text.send_message()
+    pprint.pprint(result.__dict__)
 
 
 if __name__ == '__main__':

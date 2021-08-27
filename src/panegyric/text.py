@@ -65,7 +65,7 @@ class Text:
     def get_all_messages(self):
         """Get all messages."""
         yml = yaml.YAML(typ='safe', pure=True)
-        with open(self.message_file_path) as mfp_fh:
+        with open(self.message_file_path, 'r', encoding='utf-8') as mfp_fh:
             self.messages = yml.load(mfp_fh)
         return self.messages
 

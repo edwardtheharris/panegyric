@@ -23,7 +23,7 @@ jobs:
       - run: 
           command: |
             mkdir -pv results/pylint
-            pipenv run pylint --exit-zero --output=pylint/results.xml src/
+            pipenv run pylint --exit-zero --output=results/pylint/results.xml src/
           name: pylint
       - store_test_results:
           path: results

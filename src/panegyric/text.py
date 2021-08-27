@@ -57,8 +57,7 @@ class Text:
                 and least_recent_date is not None):
             send_date = datetime.datetime.strptime(
                 message.get('send_date'), '%Y-%m-%d')
-            if least_recent_date > send_date:
-                least_recent_date = send_date
+            least_recent_date = min(least_recent_date, send_date)
         else:
             least_recent_date = self.current_date
         return least_recent_date

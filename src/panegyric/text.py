@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """This module contains the Text class."""
 import datetime
+import json
+import pprint
 import sys
 
 import requests
@@ -97,7 +99,7 @@ def main():
     text.message = text.get_message()
     text.api_key = "textbelt_test"
     result = text.send_message()
-    print(result.__dict__)
+    pprint.pprint(result.__dict__)
 
 
 if __name__ == '__main__':

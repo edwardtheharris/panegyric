@@ -105,16 +105,14 @@ class TestText:
             'key': f'{test_key}_test',
         }
         response_dict = json.load(open('tests/fixtures/resp.json'))
-        url = 'https://textbelt.com/text'
         mocked_post.return_value = Mock(
             status_code=200,
             json=lambda: response_dict)
-        resp = requests.post(url, message_dict)
+        resp = requests.post(text.url, message_dict)
 
-        pprint.pprint({'resp.__dict__': resp.__dict__,
-                       'resp.json()': resp.json()})
         assert resp.status_code == 200
         assert isinstance(resp.json(), dict)
+        assert response_dict == resp.json()
 
     def test_write_messages(self):
         """Test update of message file."""
@@ -128,13 +126,15 @@ class TestText:
 
     def test_message_rate(self):
         """Verify that we send one message a day."""
-        text = Text('tests/compliments.yml')
+        text = Text('tests/fixtures/compliments-duplicate-date.yml')
         text.messages = text.get_all_messages()
+        text.message = text.get_message()
 
-        date_list = []
-        for message in text.messages:
-            pprint.pprint(message)
-            date_list.append(message.get('send_date'))
+        test_send_date = (datetime.datetime.now().replace(
+            hour=0, minute=0, second=0, microsecond=0
+        ))
 
-        # assert set(date_list) == date_list
-        assert True
+        message_send_date = datetime.datetime.strptime(
+            text.message.get('send_date'), '%Y-%m-%d')
+
+        assert message_send_date <= test_send_date

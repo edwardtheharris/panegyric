@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """This module contains the Text class."""
 import datetime
-import json
 import pprint
 import sys
 

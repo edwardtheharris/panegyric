@@ -1,6 +1,9 @@
 - from: billybuck
   text: You have very nice hair
+  send_date: '2021-08-27'
 - from: someguy
   text: You are so smart
+  send_date: '2021-08-27'
 - from: someotherguy
   text: My favorite
+  send_date: '2021-07-04'

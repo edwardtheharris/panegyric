@@ -1,248 +1,189 @@
 - from: Roblie
-  text: |
-    Jessica, I'm sad that you're leaving. You've been a great supervisor and 
-    I appreciate all of the guidance and opportunities you've provided for me.
-    It really won't be the same without you, but I wish you the best in your
-    future endeavors. I hope we cross paths again someday. :-)
+  text: "Jessica, I'm sad that you're leaving. You've been a great supervisor and\
+    \ \nI appreciate all of the guidance and opportunities you've provided for me.\n\
+    It really won't be the same without you, but I wish you the best in your\nfuture\
+    \ endeavors. I hope we cross paths again someday. :-)\n"
+  send_date: '2021-08-27'
 - from: Don
-  text: |
-    Jessica, it is a blast working with you. You taught me a lot about other. Thank you.
-    You will be missed.
+  text: "Jessica, it is a blast working with you. You taught me a lot about other.\
+    \ Thank you.\nYou will be missed.\n"
 - from: <3 Vicky D. :-)
-  text: |
-    Jessica, Jessica, Jess! ! ! Mixed emotions here, at the end, may your decision be
-    the perfect one for you! I will miss you a lot! People come and go in our lives but 
-    only few will make a mark! You are an amazing person! Thank you for all that 
-    you are! Take care of you, Miss Jessica!
+  text: "Jessica, Jessica, Jess! ! ! Mixed emotions here, at the end, may your decision\
+    \ be\nthe perfect one for you! I will miss you a lot! People come and go in our\
+    \ lives but \nonly few will make a mark! You are an amazing person! Thank you\
+    \ for all that \nyou are! Take care of you, Miss Jessica!\n"
 - from: john
-  text: |
-    Stay in touch Jess, good luck! Will miss you.
+  text: "Stay in touch Jess, good luck! Will miss you.\n"
 - from: Jenny
-  text: |
-    Jessica, good luck in SoCal! You will be missed.
-- from : Matt
-  text: |
-    Thank you so much for being a great supervisor
-    and giving me my original opportunity as a contractor and the
-    chance to prove myself as an FTE. It was good to work with you
-    and learn so much from you. I wish you luck on all your future
-    endeavors and am certain you'll do greate no matter where you end up.
-    Take care.
+  text: "Jessica, good luck in SoCal! You will be missed.\n"
+- from: Matt
+  text: "Thank you so much for being a great supervisor\nand giving me my original\
+    \ opportunity as a contractor and the\nchance to prove myself as an FTE. It was\
+    \ good to work with you\nand learn so much from you. I wish you luck on all your\
+    \ future\nendeavors and am certain you'll do greate no matter where you end up.\n\
+    Take care.\n"
 - from: Joseph Canino
-  text: |
-    Thank you for being one of the best supervisors that I've ever worked with.
-    Wishing you all the best in LA. We'll miss you.
+  text: "Thank you for being one of the best supervisors that I've ever worked with.\n\
+    Wishing you all the best in LA. We'll miss you.\n"
 - from: Will
-  text: |
-    Thanks for being a great boss and giving me a good review! I wish you
-    a lot of success and good luck in your future endeavors!
+  text: "Thanks for being a great boss and giving me a good review! I wish you\na\
+    \ lot of success and good luck in your future endeavors!\n"
 - from: Swathi
-  text: |
-    First, I would like to thank you for giving me the opportunity to work with you.
-    I learned a lot of things from you. I wish you all the best for your future plans.
-    Thank you.
+  text: "First, I would like to thank you for giving me the opportunity to work with\
+    \ you.\nI learned a lot of things from you. I wish you all the best for your future\
+    \ plans.\nThank you.\n"
 - from: Bruce
-  text: |
-    Congrats Jess! I know you will continue to excel in whatever you do in the future.
+  text: "Congrats Jess! I know you will continue to excel in whatever you do in the\
+    \ future.\n"
 - from: Ben
-  text: |
-    Hope everything goes the way you hope it will. It has been great to work you and 
-    I will miss our coffee chats. 
+  text: "Hope everything goes the way you hope it will. It has been great to work\
+    \ you and \nI will miss our coffee chats. \n"
 - from: Queenie
-  text: |
-    Jess, it was a surprise to learn that you were leaving. We wish you the best. 
-    It was a great pleasure having you in the TA team.
+  text: "Jess, it was a surprise to learn that you were leaving. We wish you the best.\
+    \ \nIt was a great pleasure having you in the TA team.\n"
 - from: Ozark Quesada
-  text: |
-    Jessica, good luck. Take care and thank you. We will miss you.
+  text: "Jessica, good luck. Take care and thank you. We will miss you.\n"
 - from: Katie
-  text: |
-    It has been a pleasure working for you. You have been a great mentor
-    and role model and have taught me a number of great things. You will 
-    be highly missed around here, but I wish you the best of luck because
-    you deserve it!
+  text: "It has been a pleasure working for you. You have been a great mentor\nand\
+    \ role model and have taught me a number of great things. You will \nbe highly\
+    \ missed around here, but I wish you the best of luck because\nyou deserve it!\n"
 - from: HL
-  text: |
-    Best of luck to you Jessica! Thank you for always finding us a helping hand.
+  text: "Best of luck to you Jessica! Thank you for always finding us a helping hand.\n"
 - from: Stephanie
-  text: |
-    Jessica, best of luck with everything! Take care and thank you for all your help!
+  text: "Jessica, best of luck with everything! Take care and thank you for all your\
+    \ help!\n"
 - from: Jessica Perez
-  text: |
-    Dear Jessica, It has been great working with you from CAD to custom primers.
-    I wish you the best in LA.
+  text: "Dear Jessica, It has been great working with you from CAD to custom primers.\n\
+    I wish you the best in LA.\n"
 - from: Ramon
-  text: |
-    Hey Jess, Wishing you the best always, please don't forget about your crazy 
-    Columbian friend. 
+  text: "Hey Jess, Wishing you the best always, please don't forget about your crazy\
+    \ \nColumbian friend. \n"
 - from: Simran
-  text: |
-    Jessica, it was great working with you. Good luck for everything in the future.
-    You will be missed. 
+  text: "Jessica, it was great working with you. Good luck for everything in the future.\n\
+    You will be missed. \n"
 - from: Galine
-  text: |
-    Jessica! I'm wishing you the very best with your new adventure! Have fun in LA!
+  text: "Jessica! I'm wishing you the very best with your new adventure! Have fun\
+    \ in LA!\n"
 - from: Vickie Jasinsky
-  text: |
-    I will really miss you but I hope this move is all you expect it to be! Best of luck,
-    Thank you for everything! 
+  text: "I will really miss you but I hope this move is all you expect it to be! Best\
+    \ of luck,\nThank you for everything! \n"
 - from: Lebillie
-  text: |
-    Jessica, Good luck with everything! It was nice working with you. 
+  text: "Jessica, Good luck with everything! It was nice working with you. \n"
 - from: Grace
-  text: |
-    Hi Jess! We're gonna miss you! thanks for everything and wiish you the best! Good luck!
+  text: "Hi Jess! We're gonna miss you! thanks for everything and wiish you the best!\
+    \ Good luck!\n"
 - from: Kent Or
-  text: |
-    Hi Jessica, It was a pleasure working with you. Good luck in your future endeavors, 
-    I'm sure you'll do great!
+  text: "Hi Jessica, It was a pleasure working with you. Good luck in your future\
+    \ endeavors, \nI'm sure you'll do great!\n"
 - from: Lan
-  text: |
-    Dear Jess, I've never expected that one day you're gonna leave CP But I guess life is 
-    a journey so I wish you the best and we will miss you. 
+  text: "Dear Jess, I've never expected that one day you're gonna leave CP But I guess\
+    \ life is \na journey so I wish you the best and we will miss you. \n"
 - from: Raymond
-  text: |
-    Jessica, Good luck for everything in the future. It's great working with you!! 
+  text: "Jessica, Good luck for everything in the future. It's great working with\
+    \ you!! \n"
 - from: Marcus
-  text: |
-    U da best and U Rock!
+  text: "U da best and U Rock!\n"
 - from: Kris Prasad
-  text: |
-    Jessica, It has been great working with you.
-    Thanks for being a great supevisor and you 
-    will be missed by all of us. I wish you a very
-    bright and successful future. Have fun in So-Cal!!!
+  text: "Jessica, It has been great working with you.\nThanks for being a great supevisor\
+    \ and you \nwill be missed by all of us. I wish you a very\nbright and successful\
+    \ future. Have fun in So-Cal!!!\n"
 - from: YCLLi8IY
-  text: |
-    Jess, We will miss you!
+  text: "Jess, We will miss you!\n"
 - from: Haria Ocampon
-  text: |
-    Jess, Good luck in this new adventure.
-    Best wishes. 
-    Keep being happy and hope you get into school soon and get
-    to complete that part of your plans. We'll miss you here.
+  text: "Jess, Good luck in this new adventure.\nBest wishes. \nKeep being happy and\
+    \ hope you get into school soon and get\nto complete that part of your plans.\
+    \ We'll miss you here.\n"
 - from: Beyone
-  text: |
-    Jess, I truly don't believe you're leaving. Anyhow that's life, 
-    I wish you all the best. I would say I had good and best supervisor 
-    at TFS. Keep smiling, it's been great learning from you.
+  text: "Jess, I truly don't believe you're leaving. Anyhow that's life, \nI wish\
+    \ you all the best. I would say I had good and best supervisor \nat TFS. Keep\
+    \ smiling, it's been great learning from you.\n"
 - from: Pablo
-  text: |
-    Metrics, metrics, metrics, I'm going to miss this. . . 
-    As for your future metrics, I see you 100% successful.
-    Good luck and have fun. . . 
-    Thanks for everything. . . 
+  text: "Metrics, metrics, metrics, I'm going to miss this. . . \nAs for your future\
+    \ metrics, I see you 100% successful.\nGood luck and have fun. . . \nThanks for\
+    \ everything. . . \n"
 - from: Nikki
-  text: |
-    Aww Jess, why must you leave? :-( You were an awesome
-    supervisor and I admire your motivation and enthusiasm for work.
-    Thank you for getting me involved in both the safety committee and 
-    ERT. Using that fire extinguisher was definitely a highlight. :-) 
-    It's going to be weird not having you around. . . but never forget us
-    because we won't forget you.
+  text: "Aww Jess, why must you leave? :-( You were an awesome\nsupervisor and I admire\
+    \ your motivation and enthusiasm for work.\nThank you for getting me involved\
+    \ in both the safety committee and \nERT. Using that fire extinguisher was definitely\
+    \ a highlight. :-) \nIt's going to be weird not having you around. . . but never\
+    \ forget us\nbecause we won't forget you.\n"
 - from: Jamal
-  text: |
-    Hey Jess, Thanks for all of the help and guidance over the years. 
-    I wish you all the best. I'm sure PL & the green team will miss you 
-    a lot.
+  text: "Hey Jess, Thanks for all of the help and guidance over the years. \nI wish\
+    \ you all the best. I'm sure PL & the green team will miss you \na lot.\n"
 - from: Joyce
-  text: |
-    Best of luck to you, Jess! ! ! I will miss your energy and great
-    sense of humor!
+  text: "Best of luck to you, Jess! ! ! I will miss your energy and great\nsense of\
+    \ humor!\n"
 - from: Jasmine
-  text: |
-    We will miss you! But, very happy for you too. . . 
+  text: "We will miss you! But, very happy for you too. . . \n"
 - from: Ramino
-  text: |
-    Hey Jess, Wishing you the best always. Please don't forget about your
-    crazy Columbian friend. 
+  text: "Hey Jess, Wishing you the best always. Please don't forget about your\ncrazy\
+    \ Columbian friend. \n"
 - from: Kristina
-  text: | 
-    Good luck with your new adventure in L.A.! It has been
-    great working with you!
+  text: "Good luck with your new adventure in L.A.! It has been\ngreat working with\
+    \ you!\n"
 - from: Junion
-  text: |
-    Thanks so much for all the opportunities you presented me.
-    Good luck, best wishes. 
+  text: "Thanks so much for all the opportunities you presented me.\nGood luck, best\
+    \ wishes. \n"
 - from: Felicel
-  text:
-    Jessica, Good luck on your new journey and it's been great working with you!!
+  text: Jessica, Good luck on your new journey and it's been great working with you!!
 - from: Sheri :-)
-  text: |
-    Hey Jess! It was a blast getting to you know you over the years. 
-    It's been great watching you get promoted over the years. I wish you the best
-    in school and your future endeavors. Love, 
+  text: "Hey Jess! It was a blast getting to you know you over the years. \nIt's been\
+    \ great watching you get promoted over the years. I wish you the best\nin school\
+    \ and your future endeavors. Love, \n"
 - from: Tyler
-  text: |
-    Jessica, It has been great working with you! I wish you the best of luck in the future!
+  text: "Jessica, It has been great working with you! I wish you the best of luck\
+    \ in the future!\n"
 - from: Smit Shah
-  text: |
-    Good luck becoming a Hollywood celeberity, Jessica!
+  text: "Good luck becoming a Hollywood celeberity, Jessica!\n"
 - from: Hailee
-  text: |
-    Jess, Thank you for everything you did to us. 
-    Thanks for your great personality.
-    Thanks for being a great supervisor.
-    God be with you at anywhere and anytime! 
+  text: "Jess, Thank you for everything you did to us. \nThanks for your great personality.\n\
+    Thanks for being a great supervisor.\nGod be with you at anywhere and anytime!\
+    \ \n"
 - from: Aaron Lansbarkis
-  text: |
-    Jessica, Good luck with everything. It was fun  and nice working with you.
+  text: "Jessica, Good luck with everything. It was fun  and nice working with you.\n"
 - from: Amit Amar
-  text: |
-    Hi Jessica, It was a pleasure working with you. Good luck in the future!
+  text: "Hi Jessica, It was a pleasure working with you. Good luck in the future!\n"
 - from: Bautista
-  text: |
-    Jessica, Best Wishes. Only thee best. Good luck. 
+  text: "Jessica, Best Wishes. Only thee best. Good luck. \n"
 - from: Joe
-  text: |
-    Jessica, Good luck in your new life! We are all going to miss you.
+  text: "Jessica, Good luck in your new life! We are all going to miss you.\n"
 - from: Subrina Bhuiyan
-  text: |
-    Hey Jessica, I wish you good luck and thanks for your time.
+  text: "Hey Jessica, I wish you good luck and thanks for your time.\n"
 - from: Manilo
-  text: |
-    Hey Jessica, It was a Pleasure working under you for the time we were both here.
-    Good luck and all the best.
+  text: "Hey Jessica, It was a Pleasure working under you for the time we were both\
+    \ here.\nGood luck and all the best.\n"
 - from: Derek
-  text: |
-    Jessica, Sad to see you go. Good luck going forward.
+  text: "Jessica, Sad to see you go. Good luck going forward.\n"
 - from: Omar
-  text: |
-    Jessica, It was honer working with you. Thank you for all the help you gave.
-    I wish you the best in the future. Good luck.
+  text: "Jessica, It was honer working with you. Thank you for all the help you gave.\n\
+    I wish you the best in the future. Good luck.\n"
 - from: Peter
-  text: |
-    Thank you so much for everything you've done to make working here at Life/Thermo
-    so spectacular. I'll dearly miss having you around at work. I hope to see you again
-    here in the Bay. Much luck to you in the future. 
+  text: "Thank you so much for everything you've done to make working here at Life/Thermo\n\
+    so spectacular. I'll dearly miss having you around at work. I hope to see you\
+    \ again\nhere in the Bay. Much luck to you in the future. \n"
 - from: Diana =)
-  text: |
-    Hi Jessica! I wish you the best of luck no matter where you go or what you do.
-    You will succeed because you have great personality and a cool 
-    person to talk to and hang out with. Thanks for your help and xsupport in 
-    Custom Primers. We'll miss you. Take care!
+  text: "Hi Jessica! I wish you the best of luck no matter where you go or what you\
+    \ do.\nYou will succeed because you have great personality and a cool \nperson\
+    \ to talk to and hang out with. Thanks for your help and xsupport in \nCustom\
+    \ Primers. We'll miss you. Take care!\n"
 - from: Shiya Sajjad
-  text: |
-    Jessica, It was so nice working with you. Thanks for all the support 
-    on the safety endeavors! Take care and good luck!
+  text: "Jessica, It was so nice working with you. Thanks for all the support \non\
+    \ the safety endeavors! Take care and good luck!\n"
 - from: Philip
-  text: |
-    Dear Jess, I going to miss you. Good luck.
+  text: "Dear Jess, I going to miss you. Good luck.\n"
 - from: BenP
-  text: |
-    Missed you since I moved to day shift, but no you going away. 
-    So will miss you more. Good luck and best wishes for future. 
+  text: "Missed you since I moved to day shift, but no you going away. \nSo will miss\
+    \ you more. Good luck and best wishes for future. \n"
 - from: George Birmingham III
-  text: |
-    Jessica, Core lead! Remember the BWW hot wing and pizza eating contest. Good luck!
+  text: "Jessica, Core lead! Remember the BWW hot wing and pizza eating contest. Good\
+    \ luck!\n"
 - from: Priyanka
-  text: |
-    Jessica - it was really nice working with you!! Thanks for all your help on C1 PPE Project!
-    Good luck with future life in L.A. . . Will miss you. Take care! =)
+  text: "Jessica - it was really nice working with you!! Thanks for all your help\
+    \ on C1 PPE Project!\nGood luck with future life in L.A. . . Will miss you. Take\
+    \ care! =)\n"
 - from: Maggie Lau
-  text: |
-    Hi! It was nice working with you! Enjoy LA! Good luck!
-- from: Hazel 
-  text: | 
-    Jessica, Wish you much luck in all your future endeavors! Will miss you and hope you
-    don't forget about the little people in Pleasanton when you move to fancy LA. Always, 
+  text: "Hi! It was nice working with you! Enjoy LA! Good luck!\n"
+- from: Hazel
+  text: "Jessica, Wish you much luck in all your future endeavors! Will miss you and\
+    \ hope you\ndon't forget about the little people in Pleasanton when you move to\
+    \ fancy LA. Always, "

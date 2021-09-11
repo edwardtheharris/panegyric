@@ -39,7 +39,6 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.linkcode",
     "sphinx.ext.todo",
-    "sphinx.ext.viewcode",
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -58,7 +57,10 @@ def linkcode_resolve(domain, info):
     if not info['module']:
         return None
     filename = info['module'].replace('.', '/')
-    return "https://somesite/sourcerepo/%s.py" % filename
+
+    path = 'github.com/edwardtheharris/panegyric/blob/main'
+    url = f'https://{path}/{filename}.py'
+    return url
 
 
 # -- Options for HTML output -------------------------------------------------

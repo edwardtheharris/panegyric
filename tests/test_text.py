@@ -9,17 +9,21 @@ from unittest.mock import patch
 from unittest.mock import Mock
 
 import pytest
-import pytest_sentry
 import requests
 import sentry_sdk
 
+from pytest_sentry import Client
 from ruamel.yaml import YAML
 
 from panegyric.text import Text
 
 pytestmarker = pytest.mark.sentry_client({"traces_sample_rate": 0.0})
+SENTRY_DSN = ('https://a40e278a662e46db86ef8aa4d7a46fbd@o325200'
+              '.ingest.sentry.io/5955114')
+SENTRY_CLIENT = Client(SENTRY_DSN)
 
 
+@pytest.mark.sentry_client(SENTRY_CLIENT)
 class TestText:
     """Test class for Text class."""
 
@@ -36,7 +40,6 @@ class TestText:
                 'https://a40e278a662e46db86ef8aa4d7a46fbd@o325200'
                 '.ingest.sentry.io/5955114')
         })
-        print(pytest_sentry)
         sentry_sdk.init(
             ("https://a40e278a662e46db86ef8aa4d7a46fbd@o325200"
              ".ingest.sentry.io/5955114"),

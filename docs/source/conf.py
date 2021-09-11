@@ -51,6 +51,16 @@ templates_path = ['_templates']
 exclude_patterns = []
 
 
+def linkcode_resolve(domain, info):
+    """Resolve link code links."""
+    if domain != 'py':
+        return None
+    if not info['module']:
+        return None
+    filename = info['module'].replace('.', '/')
+    return "https://somesite/sourcerepo/%s.py" % filename
+
+
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for

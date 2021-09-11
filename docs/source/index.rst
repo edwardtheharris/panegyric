@@ -6,9 +6,14 @@
 Welcome to Panegyric's documentation!
 =====================================
 
+This is a tool that allows you to send nice texts once a day.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
+
+   modules
+   panegyric
 
 
 

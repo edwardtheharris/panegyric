@@ -8,11 +8,15 @@ from unittest.mock import patch
 from unittest.mock import Mock
 
 import pytest
+import pytest_sentry
 import requests
+import sentry_sdk
 
 from ruamel.yaml import YAML
 
 from panegyric.text import Text
+
+pytestmarker = pytest.mark.sentry_client({"traces_sample_rate": 0.0})
 
 
 class TestText:
@@ -21,6 +25,20 @@ class TestText:
     send_date = (datetime.datetime.now().replace(
         hour=0, minute=0, second=0, microsecond=0
     ) - datetime.timedelta(days=5))
+
+    @classmethod
+    def setup_class(cls):
+        """Set up class method."""
+        print(pytest_sentry)
+        sentry_sdk.init(
+            ("https://a40e278a662e46db86ef8aa4d7a46fbd@o325200"
+             ".ingest.sentry.io/5955114"),
+
+            # Set traces_sample_rate to 1.0 to capture 100%
+            # of transactions for performance monitoring.
+            # We recommend adjusting this value in production.
+            traces_sample_rate=1.0
+        )
 
     def test_get_message(self):
         """Test message retrival."""
@@ -45,6 +63,7 @@ class TestText:
         assert json.dumps(test_message)
         assert test_message.get('from') == 'billybuck'
         assert test_message.get('text') == 'You have very nice hair'
+        assert False
 
     def test_get_all_messages(self, messages):
         """Test get every message."""
@@ -54,7 +73,7 @@ class TestText:
         assert isinstance(messages, list)
         assert test_messages == messages
 
-    @pytest.mark.parametrize(
+    @ pytest.mark.parametrize(
         'message, least_recent_date', [(
             {'from': 'billybuck',
              'text': 'You have very nice hair'},
@@ -87,7 +106,7 @@ class TestText:
         assert json.dumps(message)
         assert isinstance(test_least_recent_date, datetime.datetime)
 
-    @patch('requests.post')
+    @ patch('requests.post')
     def test_send_message(self, mocked_post):
         """Validate that the API response is what we expect."""
         text = Text('tests/fixtures/compliments-no-date.yml')

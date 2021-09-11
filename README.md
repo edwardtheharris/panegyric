@@ -65,3 +65,11 @@ Tests are run with [pytest](https://docs.pytest.org/en/6.2.x/).
 ```bash
 pytest -s -v -l
 ```
+
+## Documentation
+
+You can build the docuentation with Sphinx.
+
+```bash
+sphinx-build docs/source docs/build
+```

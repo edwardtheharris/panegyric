@@ -1,4 +1,5 @@
-# Configuration file for the Sphinx documentation builder.
+#!/usr/bin/env python3
+"""Configuration file for the Sphinx documentation builder."""
 #
 # This file only contains a selection of the most common options. For a full
 # list see the documentation:
@@ -31,6 +32,7 @@ release = 'v0.1.1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    "sphinx.e"
 ]
 
 # Add any paths that contain templates here, relative to this directory.

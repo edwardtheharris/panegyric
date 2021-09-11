@@ -14,6 +14,7 @@ import requests
 from pytest_sentry import Client
 from ruamel.yaml import YAML
 
+from panegyric.text import main
 from panegyric.text import Text
 
 
@@ -27,6 +28,11 @@ class TestText:
     send_date = (datetime.datetime.now().replace(
         hour=0, minute=0, second=0, microsecond=0
     ) - datetime.timedelta(days=5))
+
+    def test_init(self):
+        """Test instantiation of the class."""
+        text = Text('tests/compliments.yml')
+        assert isinstance(text, Text)
 
     def test_get_message(self):
         """Test message retrival."""
@@ -143,3 +149,8 @@ class TestText:
             text.message.get('send_date'), '%Y-%m-%d')
 
         assert message_send_date <= test_send_date
+
+    def test_main(self):
+        """Test main program execution."""
+        test_result = main()
+        assert test_result.status_code == 200

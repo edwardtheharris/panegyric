@@ -53,7 +53,7 @@ class Text:
         """Get a message to send.
 
         :ivar dict all_messages: All of the messages.
-        :ivar datetime least_recent_date: Oldest message send.
+        :ivar datetime.datetime least_recent_date: Oldest message send.
         :ivar str message: Message to send.
         """
         all_messages = self.messages
@@ -79,7 +79,7 @@ class Text:
         """Check that this is least recently sent message.
 
         :param str message: Message to check the date of.
-        :param datetime least_recent_date: Oldest sned for a message.
+        :param datetime.datetime least_recent_date: Oldest sned for a message.
         """
         if (message.get('send_date')
                 and least_recent_date is None):
@@ -97,7 +97,7 @@ class Text:
     def get_all_messages(self):
         """Get all messages.
 
-        :ivar yml: A YAML object to parse messages.
+        :ivar ruamel.yaml.YAML yml: A YAML object to parse messages.
         """
         yml = yaml.YAML(typ='safe', pure=True)
         with open(self.message_file_path, 'r', encoding='utf-8') as mfp_fh:
@@ -127,7 +127,7 @@ class Text:
     def write_messages(self):
         """Write updated messages message list.
 
-        :ivar yml: A yaml object to write messages.
+        :ivar ruamel.yaml.YAML yml: A yaml object to write messages.
         """
         yml = yaml.YAML()
         yml.dump(self.messages, sys.stdout)

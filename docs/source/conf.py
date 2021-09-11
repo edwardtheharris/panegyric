@@ -51,6 +51,7 @@ exclude_patterns = []
 
 intersphinx_mapping = {'python': ('https://docs.python.org/3', None)}
 
+
 def linkcode_resolve(domain, info):
     """Resolve link code links."""
     if domain != 'py':

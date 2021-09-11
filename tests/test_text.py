@@ -17,8 +17,10 @@ from ruamel.yaml import YAML
 from panegyric.text import Text
 
 
-@pytest.mark.sentry_client(Client(
-    os.environ.get('PYTEST_SENTRY_DSN')))
+@pytest.mark.sentry_client(Client({
+    'dsn': os.environ.get('PYTEST_SENTRY_DSN'),
+    'debug': True}
+))
 class TestText:
     """Test class for Text class."""
 
@@ -44,7 +46,6 @@ class TestText:
 
         yml = YAML()
         test_data = yml.load(open('tests/result/compliments.yml'))
-        print(no_var)
         assert text.messages == test_data
         assert isinstance(test_message, dict)
         assert json.dumps(test_message)

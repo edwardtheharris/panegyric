@@ -10,20 +10,18 @@ from unittest.mock import Mock
 
 import pytest
 import requests
-import sentry_sdk
 
 from pytest_sentry import Client
 from ruamel.yaml import YAML
 
 from panegyric.text import Text
 
-pytestmarker = pytest.mark.sentry_client({"traces_sample_rate": 0.0})
-SENTRY_DSN = ('https://a40e278a662e46db86ef8aa4d7a46fbd@o325200'
-              '.ingest.sentry.io/5955114')
-SENTRY_CLIENT = Client(SENTRY_DSN)
 
-
-@pytest.mark.sentry_client(SENTRY_CLIENT)
+@pytest.mark.sentry_client(
+    Client({
+        'dsn': ('https://a40e278a662e46db86ef8aa4d7a46fbd@o325200'
+                '.ingest.sentry.io/5955114'),
+        'debug': True}))
 class TestText:
     """Test class for Text class."""
 
@@ -33,22 +31,12 @@ class TestText:
 
     @classmethod
     def setup_class(cls):
-        """Set up class method."""
+        """Set up the class."""
         os.environ.update({
-            'PYTEST_SENTRY_ALWAYS_REPORT': '1',
             'PYTEST_SENTRY_DSN': (
-                'https://a40e278a662e46db86ef8aa4d7a46fbd@o325200'
-                '.ingest.sentry.io/5955114')
+                'https://a40e278a662e46db86ef8aa4d7a46fbd@o325200.ingest'
+                '.sentry.io/5955114')
         })
-        sentry_sdk.init(
-            ("https://a40e278a662e46db86ef8aa4d7a46fbd@o325200"
-             ".ingest.sentry.io/5955114"),
-
-            # Set traces_sample_rate to 1.0 to capture 100%
-            # of transactions for performance monitoring.
-            # We recommend adjusting this value in production.
-            traces_sample_rate=1.0
-        )
 
     def test_get_message(self):
         """Test message retrival."""
@@ -68,12 +56,12 @@ class TestText:
 
         yml = YAML()
         test_data = yml.load(open('tests/result/compliments.yml'))
+        print(no_var)
         assert text.messages == test_data
         assert isinstance(test_message, dict)
         assert json.dumps(test_message)
         assert test_message.get('from') == 'billybuck'
         assert test_message.get('text') == 'You have very nice hair'
-        assert False
 
     def test_get_all_messages(self, messages):
         """Test get every message."""

@@ -109,9 +109,9 @@ def main():
     text.api_key = "textbelt_test"
     result = text.send_message()
     pprint.pprint(result.__dict__)
+    result = 15 / 0
     return result
 
 
 if __name__ == '__main__':
-    result = 15 / 0
     main()

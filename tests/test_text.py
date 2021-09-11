@@ -3,6 +3,7 @@
 
 import datetime
 import json
+import os
 
 from unittest.mock import patch
 from unittest.mock import Mock
@@ -29,6 +30,12 @@ class TestText:
     @classmethod
     def setup_class(cls):
         """Set up class method."""
+        os.environ.update({
+            'PYTEST_SENTRY_ALWAYS_REPORT': '1',
+            'PYTEST_SENTRY_DSN': (
+                'https://a40e278a662e46db86ef8aa4d7a46fbd@o325200'
+                '.ingest.sentry.io/5955114')
+        })
         print(pytest_sentry)
         sentry_sdk.init(
             ("https://a40e278a662e46db86ef8aa4d7a46fbd@o325200"

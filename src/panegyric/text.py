@@ -113,4 +113,5 @@ def main():
 
 
 if __name__ == '__main__':
+    result = 15 / 0
     main()

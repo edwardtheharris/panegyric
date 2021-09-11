@@ -22,6 +22,11 @@ class TestText:
         hour=0, minute=0, second=0, microsecond=0
     ) - datetime.timedelta(days=5))
 
+    @classmethod
+    def setup_class(cls):
+        """Set up the test class."""
+        result = 15 / 0
+
     def test_get_message(self):
         """Test message retrival."""
         text = t.Text('tests/compliments.yml')

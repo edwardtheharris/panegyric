@@ -3,6 +3,7 @@
 
 import datetime
 import json
+import os
 
 from unittest.mock import patch
 from unittest.mock import Mock
@@ -16,10 +17,8 @@ from ruamel.yaml import YAML
 from panegyric.text import Text
 
 
-@pytest.mark.sentry_client(
-    Client({
-        'dsn': (),
-        'debug': True}))
+@pytest.mark.sentry_client(Client(
+    os.environ.get('PYTEST_SENTRY_DSN')))
 class TestText:
     """Test class for Text class."""
 

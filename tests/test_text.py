@@ -12,7 +12,7 @@ import requests
 
 from ruamel.yaml import YAML
 
-from panegyric import text as t
+from panegyric.text import Text
 
 
 class TestText:
@@ -22,14 +22,9 @@ class TestText:
         hour=0, minute=0, second=0, microsecond=0
     ) - datetime.timedelta(days=5))
 
-    @classmethod
-    def setup_class(cls):
-        """Set up the test class."""
-        result = 15 / 0
-
     def test_get_message(self):
         """Test message retrival."""
-        text = t.Text('tests/compliments.yml')
+        text = Text('tests/compliments.yml')
         text.messages = text.get_all_messages()
         text.message_file_path = 'tests/result/compliments.yml'
         test_message = text.get_message()
@@ -39,7 +34,7 @@ class TestText:
         assert test_message.get('from') == 'billybuck'
         assert test_message.get('text') == 'You have very nice hair'
 
-        text = t.Text('tests/result/compliments.yml')
+        text = Text('tests/result/compliments.yml')
         text.messages = text.get_all_messages()
         test_message = text.get_message()
 
@@ -53,7 +48,7 @@ class TestText:
 
     def test_get_all_messages(self, messages):
         """Test get every message."""
-        text = t.Text('tests/compliments.yml')
+        text = Text('tests/compliments.yml')
         test_messages = text.get_all_messages()
 
         assert isinstance(messages, list)
@@ -78,7 +73,7 @@ class TestText:
     )
     def test_check_send_date(self, message, least_recent_date):
         """Test recording of most recent send date."""
-        text = t.Text('test/compliments.yml')
+        text = Text('test/compliments.yml')
         test_least_recent_date = text.check_send_date(
             message, least_recent_date
         )
@@ -95,7 +90,7 @@ class TestText:
     @patch('requests.post')
     def test_send_message(self, mocked_post):
         """Validate that the API response is what we expect."""
-        text = t.Text('tests/fixtures/compliments-no-date.yml')
+        text = Text('tests/fixtures/compliments-no-date.yml')
         text.messages = text.get_all_messages()
         text.message_file_path = 'tests/fixtures/compliments-with-date.yml'
         text_message = text.get_message()
@@ -120,7 +115,7 @@ class TestText:
 
     def test_write_messages(self):
         """Test update of message file."""
-        text = t.Text('tests/compliments.yml')
+        text = Text('tests/compliments.yml')
         text.messages = text.get_all_messages()
         text.write_messages()
 
@@ -130,7 +125,7 @@ class TestText:
 
     def test_message_rate(self):
         """Verify that we send one message a day."""
-        text = t.Text('tests/fixtures/compliments-duplicate-date.yml')
+        text = Text('tests/fixtures/compliments-duplicate-date.yml')
         text.messages = text.get_all_messages()
         text.message = text.get_message()
 

@@ -9,6 +9,9 @@ pylama = "*"
 pylint = "*"
 pytest = "*"
 pytest-cov = "*"
+sentry-sdk = "*"
+pytest-sentry = "*"
+pytest-rerunfailures = "*"
 
 [packages]
 python-dotenv = "*"

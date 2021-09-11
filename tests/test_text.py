@@ -3,6 +3,7 @@
 
 import datetime
 import json
+import os
 
 from unittest.mock import patch
 from unittest.mock import Mock
@@ -10,17 +11,28 @@ from unittest.mock import Mock
 import pytest
 import requests
 
+from pytest_sentry import Client
 from ruamel.yaml import YAML
 
+from panegyric.text import main
 from panegyric.text import Text
 
 
+@pytest.mark.sentry_client(Client({
+    'dsn': os.environ.get('PYTEST_SENTRY_DSN'),
+    'debug': True}
+))
 class TestText:
     """Test class for Text class."""
 
     send_date = (datetime.datetime.now().replace(
         hour=0, minute=0, second=0, microsecond=0
     ) - datetime.timedelta(days=5))
+
+    def test_init(self):
+        """Test instantiation of the class."""
+        text = Text('tests/compliments.yml')
+        assert isinstance(text, Text)
 
     def test_get_message(self):
         """Test message retrival."""
@@ -54,7 +66,7 @@ class TestText:
         assert isinstance(messages, list)
         assert test_messages == messages
 
-    @pytest.mark.parametrize(
+    @ pytest.mark.parametrize(
         'message, least_recent_date', [(
             {'from': 'billybuck',
              'text': 'You have very nice hair'},
@@ -87,7 +99,7 @@ class TestText:
         assert json.dumps(message)
         assert isinstance(test_least_recent_date, datetime.datetime)
 
-    @patch('requests.post')
+    @ patch('requests.post')
     def test_send_message(self, mocked_post):
         """Validate that the API response is what we expect."""
         text = Text('tests/fixtures/compliments-no-date.yml')
@@ -137,3 +149,8 @@ class TestText:
             text.message.get('send_date'), '%Y-%m-%d')
 
         assert message_send_date <= test_send_date
+
+    def test_main(self):
+        """Test main program execution."""
+        test_result = main()
+        assert test_result.status_code == 200

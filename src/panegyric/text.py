@@ -5,6 +5,7 @@ import pprint
 import sys
 
 import requests
+import sentry_sdk
 
 from ruamel import yaml
 
@@ -25,6 +26,15 @@ class Text:
         self.current_date = datetime.datetime.now().replace(
             hour=0, minute=0, second=0, microsecond=0)
         self.message_file_path = message_file_path
+        sentry_sdk.init(
+            ("https://a40e278a662e46db86ef8aa4d7a46fbd@o325200"
+             ".ingest.sentry.io/5955114"),
+
+            # Set traces_sample_rate to 1.0 to capture 100%
+            # of transactions for performance monitoring.
+            # We recommend adjusting this value in production.
+            traces_sample_rate=1.0
+        )
 
     def get_message(self):
         """Get a message to send."""
@@ -99,6 +109,7 @@ def main():
     text.api_key = "textbelt_test"
     result = text.send_message()
     pprint.pprint(result.__dict__)
+    return result
 
 
 if __name__ == '__main__':

@@ -3,7 +3,6 @@
 
 import datetime
 import json
-import os
 
 from unittest.mock import patch
 from unittest.mock import Mock
@@ -19,8 +18,7 @@ from panegyric.text import Text
 
 @pytest.mark.sentry_client(
     Client({
-        'dsn': ('https://a40e278a662e46db86ef8aa4d7a46fbd@o325200'
-                '.ingest.sentry.io/5955114'),
+        'dsn': (),
         'debug': True}))
 class TestText:
     """Test class for Text class."""
@@ -28,15 +26,6 @@ class TestText:
     send_date = (datetime.datetime.now().replace(
         hour=0, minute=0, second=0, microsecond=0
     ) - datetime.timedelta(days=5))
-
-    @classmethod
-    def setup_class(cls):
-        """Set up the class."""
-        os.environ.update({
-            'PYTEST_SENTRY_DSN': (
-                'https://a40e278a662e46db86ef8aa4d7a46fbd@o325200.ingest'
-                '.sentry.io/5955114')
-        })
 
     def test_get_message(self):
         """Test message retrival."""

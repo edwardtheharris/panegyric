@@ -14,6 +14,7 @@ This is a tool that allows you to send nice texts once a day.
 
    modules
    panegyric
+   tests
 
 
 

@@ -121,7 +121,7 @@ class Text:
             'key': self.api_key,
         }
 
-        resp = requests.post(self.url, message_dict)
+        resp = requests.post(self.url, message_dict, timeout=60)
         return resp
 
     def write_messages(self):

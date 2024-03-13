@@ -1,12 +1,32 @@
-panegyric package
-=================
+---
+abstract: This is API documentation for Panegyric.
+authors: Xander Harris
+date: 2024-03-12
+title: panegyric package
+---
 
-Submodules
-----------
+## panegyric package
+<!--
+```{autosummary}
+:toctree: .
 
-panegyric.text module
----------------------
+panegyric.text.Text.get_message
+panegyric.text.Text.check_send_date
+panegyric.text.Text.get_all_messages
+panegyric.text.Text.send_message
+panegyric.text.Text.write_message
+panegyric.text.main
+```
+-->
 
+### Submodules
+
+```{inheritance-diagram} panegyric.text.Text
+```
+
+#### panegyric.text module
+
+```{eval-rst}
 .. automodule:: panegyric.text
    :exclude-members: Text
    :show-inheritance:
@@ -44,11 +64,14 @@ panegyric.text module
       .. automethod:: write_messages
 
    .. autofunction:: main
+```
 
-Module contents
----------------
+## Module contents
 
-.. automodule:: panegyric
+```{eval-rst}
+.. automodule:: panegyric.text
    :members:
    :undoc-members:
    :show-inheritance:
+   :noindex:
+```

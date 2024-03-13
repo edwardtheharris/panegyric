@@ -16,6 +16,10 @@ If you feel like complimenting my wife via text, this is a great way to do it.
 :caption: Documentation
 
 docs/index
+docs/modules
+docs/panegyric
+docs/tests
+docs/usage
 ```
 
 ```{toctree}

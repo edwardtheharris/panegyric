@@ -5,7 +5,6 @@ import pprint
 import sys
 
 import requests
-import sentry_sdk
 
 from ruamel import yaml
 
@@ -35,19 +34,14 @@ class Text:
         """Initialize a Text instance.
 
         :param str message_file_path: Path to the file containing messages.
+
+        import os
+        # import sentry_sdk
+        # sentry_sdk.init(os.environ.get('SENTRY_DSN'))
         """
         self.current_date = datetime.datetime.now().replace(
             hour=0, minute=0, second=0, microsecond=0)
         self.message_file_path = message_file_path
-        sentry_sdk.init(
-            ("https://a40e278a662e46db86ef8aa4d7a46fbd@o325200"
-             ".ingest.sentry.io/5955114"),
-
-            # Set traces_sample_rate to 1.0 to capture 100%
-            # of transactions for performance monitoring.
-            # We recommend adjusting this value in production.
-            traces_sample_rate=1.0
-        )
 
     def get_message(self):
         """Get a message to send.
@@ -121,7 +115,7 @@ class Text:
             'key': self.api_key,
         }
 
-        resp = requests.post(self.url, message_dict)
+        resp = requests.post(self.url, message_dict, timeout='60s')
         return resp
 
     def write_messages(self):

@@ -1,9 +1,17 @@
 #!/usr/bin/env python3
 """Setup tools configuration."""
-
+# pylint: disable=E0401
+import pathlib
 import setuptools
 
-with open("README.md", "r", encoding="utf-8") as fh:
+def get_version():
+    """Get the project's version."""
+    vpath = pathlib.Path('version')
+    with vpath.open('r', encoding='utf-8') as v_fh:
+        version = v_fh.read()
+    return version
+
+with pathlib.Path('readme.md').open("r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
@@ -15,7 +23,8 @@ setuptools.setup(
     },
     install_requires=[
         'requests',
-        'ruamel.yaml'
+        'ruamel.yaml',
+        'sentry-sdk',
     ],
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -26,5 +35,5 @@ setuptools.setup(
         "Bug Tracker": "https://github.com/edwardtheharris/panegyric/issues",
     },
     url="https://github.com/edwardtheharris/panegyric",
-    version='v0.1.0',
+    version=get_version(),
 )

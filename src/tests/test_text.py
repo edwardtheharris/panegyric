@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-"""Tests for the Text class."""
+# pylint: disable=E0401
+"""Tests for the Text class.
 
+import os
+"""
 import datetime
 import json
-import os
+import pathlib
 
 from unittest.mock import patch
 from unittest.mock import Mock
@@ -53,7 +56,9 @@ class TestText:
         test_message = text.get_message()
 
         yml = YAML()
-        test_data = yml.load(open('tests/result/compliments.yml'))
+        cmp_yml = pathlib.Path('tests/result/compliments.yml')
+        with cmp_yml.open('r', encoding='utf-8') as cmp_fh:
+            test_data = yml.load(cmp_fh)
         assert text.messages == test_data
         assert isinstance(test_message, dict)
         assert json.dumps(test_message)
@@ -115,13 +120,15 @@ class TestText:
         message_dict = {
             'phone': '2138765309',
             'message': f'{text_text} - {text_from}',
-            'key': f'{test_key}_test',
+            'key': f'{test_key}_test ',
         }
-        response_dict = json.load(open('tests/fixtures/resp.json'))
+        rsp = pathlib.Path('tests/fixtures/resp.json')
+        with rsp.open('r', encoding='utf-8') as rsp_fh:
+            response_dict = json.load(rsp_fh)
         mocked_post.return_value = Mock(
             status_code=200,
             json=lambda: response_dict)
-        resp = requests.post(text.url, message_dict)
+        resp = requests.post(text.url, message_dict, timeout='60s')
 
         assert resp.status_code == 200
         assert isinstance(resp.json(), dict)
@@ -134,7 +141,9 @@ class TestText:
         text.write_messages()
 
         yml = YAML()
-        test_data = yml.load(open('tests/compliments.yml'))
+        cmp_yml = pathlib.Path('tests/compliments.yml')
+        with cmp_yml.open('r', encoding='utf-8') as cmp_fh:
+            test_data = yml.load(cmp_fh)
         assert text.messages == test_data
 
     def test_message_rate(self):

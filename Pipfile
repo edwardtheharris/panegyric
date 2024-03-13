@@ -26,7 +26,6 @@ panegyric = {file = ".", editable = true}
 sentry-sdk = "*"
 
 [docs]
-myst-parser = "*"
 sphinx = "*"
 sphinx-autobuild = "*"
 sphinx-copybutton = "*"
@@ -36,3 +35,4 @@ sphinx-last-updated-by-git = "*"
 sphinxcontrib-autoyaml = "*"
 sphinx-sizzle-theme = "*"
 renku-sphinx-theme = "*"
+myst-parser = {extras = ["linkify"], version = "*"}

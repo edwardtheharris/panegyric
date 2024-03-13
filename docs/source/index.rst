@@ -1,26 +1,33 @@
-.. Panegyric documentation master file, created by
+---
+abstract: >-
+   Panegyric documentation master file, created by
    sphinx-quickstart on Sat Sep 11 11:56:24 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
+authors: Xander Harris
+date: 2024-03-12
+title: Panegyric Documentation
+---
 
-Welcome to Panegyric's documentation!
-=====================================
+If you feel like complimenting my wife via text, this is a great way to do it.
 
-This is a tool that allows you to send nice texts once a day.
+```{toctree}
+:maxdepth: 2
+:caption: Documentation
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+docs/index
+```
 
-   modules
-   panegyric
-   tests
+```{toctree}
+:caption: Minutiae
 
+license
+readme
+security
+```
 
+## Indices and tables
 
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+- {ref}`genindex`
+- {ref}`modindex`
+- {ref}`search`

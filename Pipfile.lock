@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "9c20aa2bc3d6d426ce872f8e2bce1ba55af0de86cfdd0a88ad4e98cafef28d09"
+            "sha256": "1bb5f311525d07135e394856b312c93f9cd8b999b9be4bee306cfe1fb2eae878"
         },
         "pipfile-spec": 6,
         "requires": {},
@@ -181,6 +181,10 @@
             ],
             "markers": "python_version >= '3.7'",
             "version": "==24.0"
+        },
+        "panegyric": {
+            "editable": true,
+            "file": "."
         },
         "platformdirs": {
             "hashes": [

@@ -10,19 +10,20 @@ pylint = "*"
 pylint-junit = "*"
 pytest = "*"
 pytest-cov = "*"
-sentry-sdk = "*"
-pytest-sentry = "*"
+pytest-pylint = "*"
 pytest-rerunfailures = "*"
+pytest-sentry = "*"
+sentry-sdk = "*"
 
 [packages]
+loguru = "*"
 "ruamel.yaml" = "*"
 python-dotenv = "*"
 requests = "*"
-sqlalchemy = "*"
 tox = "*"
 
 [docs]
-myst-parser = {extras = ["linkify"], version = "*"}
+myst-parser = "*"
 sphinx = "*"
 sphinx-autobuild = "*"
 sphinx-copybutton = "*"

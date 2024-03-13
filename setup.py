@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Setup tools configuration."""
-
+# pylint: disable=E0401
 import pathlib
 import setuptools
 

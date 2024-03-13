@@ -27,7 +27,9 @@ copyright = '2021, Xander Harris'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = [".venv/*"]
+exclude_patterns = [
+    '.venv/*'
+]
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -44,6 +46,7 @@ extensions = [
     'sphinx.ext.duration',
     'sphinx.ext.githubpages',
     'sphinx.ext.graphviz',
+    'sphinx.ext.inheritance_diagram',
     'sphinx.ext.intersphinx',
     'sphinx.ext.linkcode',
     'sphinx.ext.todo',
@@ -61,7 +64,10 @@ html_theme = 'renku'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-intersphinx_mapping = {'python': ('https://docs.python.org/3', None)}
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3', None),
+    # 'requests': ('https://docs.python-requests.org/en/latest/', None)
+}
 # Add any paths that contain templates here, relative to this directory.
 myst_enable_extensions = [
     "amsmath",

@@ -21,7 +21,11 @@ def messages():
 
 @pytest.fixture
 def api_response():
-    """Return a mocked API reponse."""
+    """Return a mocked API response.
+
+    :return: A mock API response
+    :rtype: dict
+    """
     return {
         '_content': (b'{ "success": false,'
                      b' "error": "Out of quota",'

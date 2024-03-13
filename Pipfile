@@ -23,6 +23,7 @@ requests = "*"
 tox = "*"
 setuptools = "*"
 panegyric = {file = ".", editable = true}
+sentry-sdk = "*"
 
 [docs]
 myst-parser = "*"

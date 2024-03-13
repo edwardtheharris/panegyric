@@ -23,7 +23,8 @@ setuptools.setup(
     },
     install_requires=[
         'requests',
-        'ruamel.yaml'
+        'ruamel.yaml',
+        'sentry-sdk',
     ],
     long_description=long_description,
     long_description_content_type="text/markdown",

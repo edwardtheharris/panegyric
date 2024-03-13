@@ -11,19 +11,21 @@ from unittest.mock import Mock
 import pytest
 import requests
 
-from pytest_sentry import Client
 from ruamel.yaml import YAML
 
 from panegyric.text import main
 from panegyric.text import Text
 
 
-@pytest.mark.sentry_client(Client({
-    'dsn': os.environ.get('PYTEST_SENTRY_DSN'),
-    'debug': True}
-))
 class TestText:
-    """Test class for Text class."""
+    """Test class for Text class.
+
+    # from pytest_sentry import Client
+    # @pytest.mark.sentry_client(Client({
+    #     'dsn': os.environ.get('PYTEST_SENTRY_DSN'),
+    #     'debug': True}
+    # ))
+    """
 
     send_date = (datetime.datetime.now().replace(
         hour=0, minute=0, second=0, microsecond=0

@@ -6,8 +6,23 @@ title: panegyric package
 ---
 
 ## panegyric package
+<!--
+```{autosummary}
+:toctree: .
+
+panegyric.text.Text.get_message
+panegyric.text.Text.check_send_date
+panegyric.text.Text.get_all_messages
+panegyric.text.Text.send_message
+panegyric.text.Text.write_message
+panegyric.text.main
+```
+-->
 
 ### Submodules
+
+```{inheritance-diagram} panegyric.text.Text
+```
 
 #### panegyric.text module
 
@@ -54,8 +69,9 @@ title: panegyric package
 ## Module contents
 
 ```{eval-rst}
-.. automodule:: panegyric
+.. automodule:: panegyric.text
    :members:
    :undoc-members:
    :show-inheritance:
+   :noindex:
 ```

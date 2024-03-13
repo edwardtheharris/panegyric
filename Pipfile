@@ -21,6 +21,7 @@ loguru = "*"
 python-dotenv = "*"
 requests = "*"
 tox = "*"
+setuptools = "*"
 
 [docs]
 myst-parser = "*"

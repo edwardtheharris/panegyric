@@ -1,12 +1,20 @@
-# panegyric
+---
+abstract: The Panegyric Application's readme.
+authors: Xander Harris
+date: 2024-03-12
+title: Panegyric
+---
 
-[![circle ci build status](https://circleci.com/gh/edwardtheharris/panegyric.svg?style=shield)](https://app.circleci.com/pipelines/github/edwardtheharris/panegyric) [![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com) [![codecov](https://codecov.io/gh/edwardtheharris/panegyric/branch/main/graph/badge.svg?token=7D17IAT6L7)](https://codecov.io/gh/edwardtheharris/panegyric) [![wakatime](https://wakatime.com/badge/github/edwardtheharris/panegyric.svg)](https://wakatime.com/badge/github/edwardtheharris/panegyric)
+
+[![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
+[![codecov](https://codecov.io/gh/edwardtheharris/panegyric/branch/main/graph/badge.svg?token=7D17IAT6L7)](https://codecov.io/gh/edwardtheharris/panegyric)
+[![wakatime](https://wakatime.com/badge/github/edwardtheharris/panegyric.svg)](https://wakatime.com/badge/github/edwardtheharris/panegyric)
 
 A tool for sending praise via text on a regular schedule.
 
-## Usage
+## Installation
 
-Make sure you've got Python 3 installed with pipenv available.
+Make sure you've got Python 3 installed with `pipenv`{l=shell} available.
 
 ```bash
 pip3 install pipenv

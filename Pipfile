@@ -19,9 +19,7 @@ python-dotenv = "*"
 requests = "*"
 "ruamel.yaml" = "*"
 tox = "*"
-<<<<<<< Updated upstream
 pylint-junit = "*"
-=======
 sqlalchemy = "*"
 
 [docs]
@@ -33,4 +31,3 @@ sphinx-git = "*"
 sphinx-last-updated-by-git = "*"
 sphinxcontrib-autoyaml = "*"
 myst-parser = {extras = ["linkify"], version = "*"}
->>>>>>> Stashed changes

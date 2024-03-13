@@ -9,6 +9,7 @@ title: Panegyric Docs Index
 modules
 panegyric
 tests
+usage
 ```
 
 ```{sectionauthor} Xander Harris <xandertheharris@gmail.com>

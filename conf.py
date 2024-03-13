@@ -14,9 +14,8 @@
 """
 import pathlib
 import sys
-sys.path.insert(0, str(pathlib.Path('.').resolve))
-sys.path.insert(0, str(pathlib.Path('./tests').resolve))
-
+cur_dir = pathlib.Path(__file__).resolve
+sys.path.insert(0, str(cur_dir))
 
 # -- Project information ----------------------------------------------------
 # The full version, including alpha/beta/rc tags

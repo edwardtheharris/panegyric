@@ -1,12 +1,17 @@
-panegyric package
-=================
+---
+abstract: This is API documentation for Panegyric.
+authors: Xander Harris
+date: 2024-03-12
+title: panegyric package
+---
 
-Submodules
-----------
+## panegyric package
 
-panegyric.text module
----------------------
+### Submodules
 
+#### panegyric.text module
+
+```{eval-rst}
 .. automodule:: panegyric.text
    :exclude-members: Text
    :show-inheritance:
@@ -44,11 +49,13 @@ panegyric.text module
       .. automethod:: write_messages
 
    .. autofunction:: main
+```
 
-Module contents
----------------
+## Module contents
 
+```{eval-rst}
 .. automodule:: panegyric
    :members:
    :undoc-members:
    :show-inheritance:
+```

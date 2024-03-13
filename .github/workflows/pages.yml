@@ -99,7 +99,7 @@ jobs:
       - name: Install pipenv
         run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
       - name: Install Python dependencies
-        run: pipenv install
+        run: pipenv install --categories docs
       - name: Build the static site
         run: pipenv run sphinx-build -a -E . deploy
       - name: Upload artifact

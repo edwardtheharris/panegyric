@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Configuration for panegyric tests."""
-
+import pathlib
 import pytest
 from ruamel import yaml
 
@@ -15,7 +15,9 @@ def message():
 def messages():
     """Return all messages for testing."""
     yml = yaml.YAML(typ='safe', pure='True')
-    return_messages = yml.load(open('tests/compliments.yml'))
+    comp_path = pathlib.Path('tests/compliments.yml')
+    with comp_path.open('r', encoding='utf-8') as cp_fh:
+        return_messages = yml.load(cp_fh)
     return return_messages
 
 

@@ -7,22 +7,22 @@ verify_ssl = true
 autopep8 = "*"
 pylama = "*"
 pylint = "*"
+pylint-junit = "*"
 pytest = "*"
 pytest-cov = "*"
 sentry-sdk = "*"
 pytest-sentry = "*"
 pytest-rerunfailures = "*"
-sphinx = "*"
 
 [packages]
+"ruamel.yaml" = "*"
 python-dotenv = "*"
 requests = "*"
-"ruamel.yaml" = "*"
-tox = "*"
-pylint-junit = "*"
 sqlalchemy = "*"
+tox = "*"
 
 [docs]
+myst-parser = {extras = ["linkify"], version = "*"}
 sphinx = "*"
 sphinx-autobuild = "*"
 sphinx-copybutton = "*"
@@ -30,4 +30,3 @@ sphinx-design = "*"
 sphinx-git = "*"
 sphinx-last-updated-by-git = "*"
 sphinxcontrib-autoyaml = "*"
-myst-parser = {extras = ["linkify"], version = "*"}

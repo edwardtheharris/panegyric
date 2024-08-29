@@ -11,3 +11,5 @@ results.*
 build/
 *.ipynb*
 _build/
+.gnupg/
+.vscode/

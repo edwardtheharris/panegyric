@@ -1,8 +1,0 @@
-{
-    "python.linting.pylintEnabled": false,
-    "python.linting.pylamaEnabled": true,
-    "python.linting.enabled": true,
-    "editor.renderWhitespace": "all",
-    "python.formatting.provider": "autopep8",
-    "restructuredtext.confPath": "${workspaceFolder}/docs/source"
-}

@@ -27,8 +27,8 @@ classifiers = [
 dependencies = []
 
 [project.urls]
-Documentation = "https://github.com/Xander Harris/panegyric#readme"
-Issues = "https://github.com/Xander Harris/panegyric/issues"
+Documentation = "https://github.com/edwardtheharris/panegyric#readme"
+Issues = "https://github.com//panegyric/issues"
 Source = "https://github.com/Xander Harris/panegyric"
 
 [tool.hatch.version]

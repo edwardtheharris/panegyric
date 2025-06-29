@@ -24,6 +24,7 @@ tox = "*"
 setuptools = "*"
 panegyric = {file = ".", editable = true}
 sentry-sdk = "*"
+pipenv = "*"
 
 [docs]
 sphinx = "*"

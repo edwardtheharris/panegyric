@@ -1,0 +1,43 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "0e07c44b84c63b713b8a8f36e44aec563f295b7be626ebfbe8fa08cc6556e2cf"
+        },
+        "pipfile-spec": 6,
+        "requires": {},
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "loguru": "*",
+        "panegyric": {
+            "editable": true,
+            "file": "."
+        },
+        "pipenv": "*",
+        "python-dotenv": "*",
+        "requests": "*",
+        "ruamel.yaml": "*",
+        "sentry-sdk": "*",
+        "setuptools": "*",
+        "tox": "*"
+    },
+    "develop": {
+        "autopep8": "*",
+        "pylama": "*",
+        "pylint": "*",
+        "pylint-junit": "*",
+        "pytest": "*",
+        "pytest-cov": "*",
+        "pytest-pylint": "*",
+        "pytest-rerunfailures": "*",
+        "pytest-sentry": "*",
+        "sentry-sdk": "*"
+    },
+    "docs": {}
+}

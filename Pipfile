@@ -26,7 +26,6 @@ sphinx-sizzle-theme = "*"
 sphinxcontrib-autoyaml = "*"
 
 [packages]
-"ruamel.yaml" = "*"
 loguru = "*"
 panegyric = {file = ".", editable = true}
 pipenv = "*"

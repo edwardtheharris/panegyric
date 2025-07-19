@@ -27,8 +27,6 @@ sphinxcontrib-autoyaml = "*"
 
 [packages]
 loguru = "*"
-panegyric = {file = ".", editable = true}
-pipenv = "*"
 python-dotenv = "*"
 requests = "*"
 sentry-sdk = "*"

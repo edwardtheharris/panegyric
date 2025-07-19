@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 autopep8 = "*"
+myst-parser = {extras = ["linkify"], version = "*"}
 pylama = "*"
 pylint = "*"
 pylint-junit = "*"
@@ -13,27 +14,21 @@ pytest-cov = "*"
 pytest-pylint = "*"
 pytest-rerunfailures = "*"
 pytest-sentry = "*"
+renku-sphinx-theme = "*"
 sentry-sdk = "*"
-
-[packages]
-loguru = "*"
-"ruamel.yaml" = "*"
-python-dotenv = "*"
-requests = "*"
-tox = "*"
-setuptools = "*"
-panegyric = {file = ".", editable = true}
-sentry-sdk = "*"
-pipenv = "*"
-
-[docs]
 sphinx = "*"
 sphinx-autobuild = "*"
 sphinx-copybutton = "*"
 sphinx-design = "*"
 sphinx-git = "*"
 sphinx-last-updated-by-git = "*"
-sphinxcontrib-autoyaml = "*"
 sphinx-sizzle-theme = "*"
-renku-sphinx-theme = "*"
-myst-parser = {extras = ["linkify"], version = "*"}
+sphinxcontrib-autoyaml = "*"
+
+[packages]
+loguru = "*"
+python-dotenv = "*"
+requests = "*"
+sentry-sdk = "*"
+setuptools = "*"
+tox = "*"
